@@ -1,0 +1,76 @@
+<aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p><%=user.Nome_completo%></p>
+          <p style="font-size: 13px">CRF: <%=user.CRF%></p>
+
+
+          <!-- Status -->
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu tree" data-widget="tree">
+        <li class="header">MENU</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li>
+          <a href="index.html">
+            <i class="fa fa-home"></i>
+            <span>Tela Inicial</span>
+          </a>
+        </li>
+        <li id="sensores" class="active treeview menu-open">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Sensores</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <%if(sensores.length > 0) { %>
+
+          <ul class="treeview-menu">
+            <% sensores.forEach((sensor)=>{ %>
+            <li class="active"><a href="/admin/monitoramento?id=<%=sensor.idSensor%>"><i class="fa fa-circle-o"></i><%=sensor.apelido%></a></li>
+
+            <% }) %>
+          </ul>
+
+
+          <% } %>
+
+        </li>
+        <li>
+        <li>
+        <li>
+
+          <a href="historico.html">
+            <i class="fa fa-circle"></i>
+            <span>Historico</span>
+          </a>
+        </li>
+        <li>
+        <li>
+          <a href="sensores.html">
+            <i class="fa fa-circle"></i>
+            <span>Sensores</span>
+          </a>
+        </li>
+        <li>
+          <a href="alertas.html">
+            <i class="fa fa-circle"></i>
+            <span>Alertas</span>
+          </a>
+        </li>
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>
