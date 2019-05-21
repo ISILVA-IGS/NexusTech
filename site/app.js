@@ -3,8 +3,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var http = require('http');
-var socket = require ('socket.io');
 
 
 var indexRouter = require('./routes/index');
@@ -12,21 +10,9 @@ var adminRouter = require('./routes/admin');
 
 var app = express();
 
-var http = http.Server(app);
-var io = socket(http);
 
 
 
-io.on('connection', function (socket){
-
-  console.log('usuario conectou');
-  
-
-
-  global.socket_io = socket;
-
-
-});
 
 
 
@@ -62,12 +48,6 @@ app.use(function(err, req, res, next) {
 
 
 
-http.listen(3000,function(){
 
-
-
-  console.log('servidor online');
-
-});
 
 module.exports = app;
