@@ -1,18 +1,23 @@
 {
-  "name": "multiroom_chat",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "app",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "start": "node app"
+    "start": "node app.js"
   },
-  "author": "Jorge",
-  "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "consign": "^0.1.2",
-    "ejs": "^2.5.2",
-    "express": "^4.14.0",
-    "express-validator": "^2.20.8"
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "^4.15.2",
+    "express-session": "^1.16.1",
+    "express-validator": "^5.3.1",
+    "formidable": "^1.2.1",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "mssql": "^5.1.0",
+    "nexmo": "^2.4.3-beta-1",
+    "socket.io": "^2.2.0"
   }
 }
