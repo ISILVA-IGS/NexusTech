@@ -14,9 +14,9 @@ var formidable = require('formidable');
 
 
 var app = express();
-app.use(session({secret:'password',/*
+app.use(session({secret:'password',
 resave:true,
-saveUnitialized:true*/
+saveUnitialized:true
 }))
 
 
