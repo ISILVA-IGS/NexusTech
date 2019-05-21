@@ -142,7 +142,7 @@ class ControllerAlerta{
 
         }
 
-        sms(msg);
+        //sms(msg);
 
     }
 
