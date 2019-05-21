@@ -39,7 +39,7 @@
         </div>
             <%}%>
 
-      <form method="post">
+      <form method="post" action="/admin/login">
         <div class="form-group has-feedback">
           <input name="email" type="email" class="form-control" placeholder="E-mail" <% if(typeof campos =='object'){ %> value='<%=campos.email%>' <% } %> >
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
