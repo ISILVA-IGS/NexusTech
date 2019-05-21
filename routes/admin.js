@@ -7,7 +7,7 @@ const login = require("../controller/controller_login");
 const looping_ = require("../utils/looping");
 const looping = new looping_()
 
-/*
+
 router.use(function(req,res,next){
   if(['/login',"/admin/looping/","/admin/start/"].indexOf(req.url) === -1 && !req.session.user){
 
@@ -17,7 +17,7 @@ router.use(function(req,res,next){
   }
 
 
-});*/
+});
 
 
 
