@@ -3,10 +3,8 @@ var sql = require('mssql')
 
 module.exports = function(application){
 	users = application.get('users');
+	
 	application.get('/', function(req, res){
-
-		res.render("teste");
-	/*
 
 		sql.connect(config).then(() => {
 			return sql.query`Select * from Clientes`
@@ -19,7 +17,6 @@ module.exports = function(application){
 			sql.close()
 			res.send('Falha ao estabelecer conexão com o banco', err);	
 		});
-		*/
 			
 	});
 
