@@ -9,7 +9,7 @@ const looping = new looping_()
 
 
 router.use(function(req,res,next){
-  if(['/login',"/admin/looping/","/admin/start/"].indexOf(req.url) === -1 && !req.session.user){
+  if(['/login'].indexOf(req.url) === -1 && !req.session.user){
 
     res.redirect('/admin/login');
   }else{
