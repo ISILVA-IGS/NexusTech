@@ -1,23 +1,20 @@
 {
-  "name": "app",
-  "version": "0.0.0",
-  "private": true,
+  "name": "nodejs-data-manipulation",
+  "version": "1.0.0",
+  "description": "Application to get data from a hosted database",
+  "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app"
   },
+  "author": "Sarky",
+  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "ejs": "~2.5.7",
-    "express": "^4.15.2",
-    "express-session": "^1.16.1",
+    "consign": "^0.1.6",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
     "express-validator": "^5.3.1",
-    "formidable": "^1.2.1",
-    "http-errors": "~1.6.2",
-    "morgan": "~1.9.0",
     "mssql": "^5.1.0",
-    "nexmo": "^2.4.3-beta-1",
     "socket.io": "^2.2.0"
   }
 }

@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto|Raleway:700');
+
+
+:root{
+	--default-font: 'Roboto';
+}
+html, body{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: var(--default-font);
+	background: #444;
+	perspective: 2500px;
+}
+
+header{
+	width: 100vw;
+	height: 5vh;
+}
+a{
+	text-decoration: none;
+	color: #222;
+	transition: color 200ms ease-out;
+}
+
+.container{
+	width: 640px;
+	height: 480px;
+	margin: auto;
+	
+	display: flex;
+}
+.panel, .face, form{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.face, .panel{
+	height: 100%;
+	width: 100%;
+	border-radius: 8px;
+}
+
+.card{
+	position: relative;
+	width: 50%;
+	height: 100%;
+	transition: transform 500ms ease-in-out;
+  transform-style: preserve-3d;
+}
+.card.flip {
+  transform: rotateY(180deg);
+}
+.face{
+	position: absolute;
+	background: #EEE;
+	text-align: center;
+	backface-visibility: hidden;
+}
+.card-back{
+	transform: rotatey(180deg);
+}
+
+
+.panel{
+	color: whitesmoke;
+	background: #222;
+	letter-spacing: 0.03em;
+}
+.panelspan{
+	margin: 5px 25px;
+	font-size: 15px;
+}
+.panelbtn{
+	margin-top: 20px;
+	background: #222;
+	border: 1px solid whitesmoke;
+}
+
+
+.formspan{
+	font-size: 14px;
+	margin: 5px;
+}
+.forgot{
+	margin: 8px;
+}
+.formbtn{
+	color: #222;
+}
+#forgotpassword{
+	font-size: 15px;
+	margin: 8px;
+}
+
+/*
+.toggle2{
+	transform: rotatey(-180deg);
+}
+*/
+
+input, select{
+	display: block;
+	margin: 6px;
+	padding: 8px 10px;
+	width: 110%;
+	background: #DDD;
+	border: 1.5px solid #DDD;
+	border-radius: 6px;
+	transition: border 250ms ease-out; 
+}
+input:hover, input:focus, select:focus{
+	outline: none;
+	border: 1.5px solid black;
+}
+/* Placeholders */
+::placeholder { /* Firefox, Chrome, Opera */
+	letter-spacing: 0.02em;
+	color: rgba(70,70,70,1); 
+}
+
+button{
+	cursor: pointer;
+	width: 140px;
+	padding: 10px;
+	margin: 5px;
+	color: whitesmoke;
+	background: #DDD;
+	border: none;
+	border-radius: 25px;
+	font-family: 'Raleway';
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	transition: color 200ms ease-out, background 200ms ease-out;
+}
+button:hover, button:focus{
+	outline: none;
+}
+button:hover, button:active{
+	background: #222;
+	color: whitesmoke;
+}
+
+h2{
+	font-family: 'Montserrat';
+	font-weight: bold;
+	font-size: 1.7em;
+}
+
+
+.social-container{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.social-container a{
+	width: 25px;
+	height: 25px;
+	margin: 5px;
+	padding: 10px;
+	color: #222;
+	background: #DDD;
+	border-radius: 25px;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: border 200ms ease-out, background 200ms ease-out, color 200ms ease-out;
+}
+.social-container a:hover{
+	border-color: black;
+	background: #222;
+	color: whitesmoke;
+}
+/*
+a[id="fb"]:hover{
+	background:  #3b5998;
+}
+a[id="gp"]:hover{
+	background:  #dd4b39;
+}
+a[id="lin"]:hover{
+	background:  #0077b5;
+}
+*/
+
+footer{
+	position: relative;
+	bottom: -40px;
+	width: 100%;
+	height: 30px;
+	color: #DDD;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+footer a{
+	color: #DDD;
+	display: inline-block;
+	transition: color 250ms ease-out, transform 250ms ease-out;
+}
+footer a:hover{
+	filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.5));
+	transform: scale(1.04);
+	color: #AAA;
+}
