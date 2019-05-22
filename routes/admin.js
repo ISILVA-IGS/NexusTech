@@ -72,12 +72,21 @@ router.get('/monitoramento/', function(req, res, next) {
       
       id= sensores[0].idSensor
     }
+    req.session.sensores = sensores;
     looping.resetaInstancia();
     res.render('monitoramento',{sensores,user:req.session.user,id:id})
 
   });
 });
 
+
+
+
+router.get('/user', function(req, res, next) {
+  
+  res.render('user',{sensores:req.session.sensores,user:req.session.user});
+ 
+});
 
 
 

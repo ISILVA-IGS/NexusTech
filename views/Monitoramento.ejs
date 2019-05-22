@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>NexusTech</title>
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-  <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
-  <meta name="author" content="Hcode.com.br" />
-  <meta name="theme-color" content="#ADD8E6">
-</head>
-
-<body class="hold-transition skin-blue sidebar-mini">
-
-  <div class="wrapper">
-    <input id="idSensor" value="<%=id%>" type="hidden">
     <!-- Main Header -->
     <%- include('include/header') -%>
 
@@ -129,6 +109,7 @@
 
 
 
+      <input id="idSensor" value="<%=id%>" type="hidden">
 
 
         <!--Final dos novos campos-->
@@ -160,9 +141,9 @@
       <script src="/socket.io/socket.io.js"></script>
       <script src='/admin/dist/js/eventsVerificacao.js'></script>
       <script>
-        var socket = io('https://nexustech.azurewebsites.net');
+        //var socket = io('https://nexustech.azurewebsites.net');
 
-       //var socket = io('localhost:8080');
+       var socket = io('localhost:8080');
 
         var events = new eventsVericacao();
 
