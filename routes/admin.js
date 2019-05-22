@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var C_dashBoard_ = require('../controller/controller_dashBoard');
 var C_dashBoard = new C_dashBoard_();
+const C_user = require("../controller/Controller_User");
 var repositorio_Historico = require('../repositorio/repositorio_Historico');
 const login = require("../controller/controller_login");
 const looping_ = require("../utils/looping");
@@ -88,6 +89,13 @@ router.get('/user', function(req, res, next) {
  
 });
 
+router.post('/user', function(req, res, next) {
+
+  C_user.saveOrUpdate(req.fields).then(rs=>{res.send(rs)});
+  
+ 
+});
+
 
 
 
@@ -106,7 +114,7 @@ router.post('/looping/', function(req, res, next) {
 
 router.post('/start/', function(req, res, next) {
  
-  C_dashBoard.selectToplast10(req.query.id).then(json=>{console.log('voltei'); res.send(json)})
+  C_dashBoard.selectToplast10(req.query.id).then(json=>{ res.send(json)})
  
 });
 

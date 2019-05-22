@@ -40,5 +40,25 @@ module.exports  = {
              });
             
         });
+    },
+
+    async insert(data){
+        const sql = await mssql.connect()
+        return new Promise((resolve,reject)=>{
+            console.log(data.cpf);
+            
+            sql.query(`insert into usuario values (${data.cpf},'${data.name}','${data.usuario}','${data.email}','${data.password}',
+            '${data.celular}','${data.crf}','1','1','teteste',1);`,(err,rs)=>{
+
+                if(err){
+                    console.log(err);
+                }else{
+             
+                    resolve(rs.recordset);
+                }
+
+             });
+            
+        });
     }
 }

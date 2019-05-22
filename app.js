@@ -17,7 +17,36 @@ var app = express();
 app.use(session({secret:'password',
 resave:true,
 saveUnitialized:true
-}))
+}));
+
+app.use(function(req,res,next){
+
+
+  
+
+  if(req.method === 'POST' && req.url == '/admin/user' ){
+
+
+
+    var form = formidable.IncomingForm({
+ 
+    });
+
+
+    form.parse(req,(err,fields,files)=>{
+      
+
+      req.fields = fields;
+      req.files = files;
+      next();
+
+    });
+
+  }else{
+    next();
+  }
+
+})
 
 
 
@@ -80,6 +109,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
+
 
 
 

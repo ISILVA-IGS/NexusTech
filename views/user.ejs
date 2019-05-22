@@ -85,7 +85,7 @@
       <div class="modal fade" id="modal-create">
         <div class="modal-dialog">
           <div class="modal-content" style="border-top: 3px solid #00a65a;">
-            <form method="post">
+            <form method="post" action="/admin/user">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
@@ -98,13 +98,51 @@
                   <input type="text" class="form-control" id="inputNameCreate" name="name">
                 </div>
                 <div class="form-group">
+                    <label for="inputNameCreate">CPF</label>
+                    <input type="text" class="form-control" id="inputCpfCreate" name="cpf">
+                  </div>
+                  <div class="form-group">
+                      <label for="inputNameCreate">CRF</label>
+                      <input type="text" class="form-control" id="inputCrfCreate" name="crf">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputNameCreate">Celular</label>
+                        <input type="text" class="form-control" id="inputCelularCreate" name="celular">
+                      </div>
+                    
+                <div class="form-group">
+                    <label for="inputNameCreate">Usuário</label>
+                    <input type="text" class="form-control" id="inputUsuarioCreate" name="usuario">
+                  </div>
+                <div class="form-group">
                   <label for="inputEmailCreate">E-mail</label>
                   <input type="email" class="form-control" id="inputEmailCreate" name="email">
                 </div>
                 <div class="form-group">
                   <label for="inputPasswordCreate">Senha</label>
-                  <input type="password" class="form-control" id="inputPasswordCreate" name="password">
+                  <input type="text" class="form-control" id="inputPasswordCreate" name="password">
                 </div>
+                <div class="form-group">
+                    <label for="inputPasswordCreate">Notificação</label>
+                    <input type="text" class="form-control" id="inputNotificacaoCreate" name="notificacao">
+                </div>
+                <div class="form-group">
+                    <label for="inputPasswordCreate">Administrador</label>
+                    <input type="text" class="form-control" id="inputAdministradorCreate" name="administrador">
+                  </div>
+                  <div class="form-group">
+                      <label for="inputPasswordCreate">Unidade</label>
+                      <input type="text" class="form-control" id="inputUnidadeCreate" name="unidade">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPhotoCreate">Foto</label>
+                        <img id="imgFile" style="max-width: 128px;  max-height: 128px; display: block;" src="dist/img/avatar5.png">
+                        <input type="file"  class="form-control" id="inputPhotoCreate" name="photo">
+                      <input type="hidden"  id="fotoValue" name="fotoValue">
+
+                      </div>
+
+                  
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
@@ -137,6 +175,7 @@
                   <label for="inputEmailUpdate">E-mail</label>
                   <input type="email" class="form-control" id="inputEmailUpdate" name="email">
                 </div>
+              
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
@@ -180,6 +219,29 @@
 
 
       </script>
+      <script src="/admin/dist/js/file.js" ></script>
+      <script src="/admin/dist/js/save.js" ></script>
+
+
+
+<script>
+
+  
+    //        ##  script de CREATE   ##  
+      
+    
+      var file = new File('#inputPhotoCreate','#imgFile')
+
+      file.ler().then(rs=>{console.log(rs);
+      fotoValue.value=rs;
+      });
+    let form_modal = document.querySelector('#modal-create form');
+    
+    form_modal.save().then(rs=>{window.location.reload()}).catch(err=>{console.log(err)});
+    
+    
+    
+</script>
 
 
 
