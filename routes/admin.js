@@ -64,7 +64,7 @@ router.get('/login', function(req, res, next) {
 
 
 router.get('/monitoramento/', function(req, res, next) {
-  
+  console.log(req.session.user);
   C_dashBoard.selectSensores(req.session.user.CPF).then(sensores=>{
     var id;
     if(req.query.id){
@@ -90,7 +90,7 @@ router.get('/user', function(req, res, next) {
 });
 
 router.post('/user', function(req, res, next) {
-
+  console.log(req.fields);
   C_user.saveOrUpdate(req.fields).then(rs=>{res.send(rs)});
   
  

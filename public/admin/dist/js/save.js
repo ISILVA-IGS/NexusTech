@@ -28,10 +28,8 @@ HTMLFormElement.prototype.save = function(){
                 let formData = new FormData(form);
 
 
-                fetch(form.action,{method:form.method,body:formData}).then(Response=> Response.json())
-                .then(json=>{
-                    resolve(json);
-                }).catch(err=>{reject(err)});
+                fetch(form.action,{method:form.method,body:formData}).then(Response=>{resolve(Response)})
+                .catch(err=>{reject(err)});
             }
             
             

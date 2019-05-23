@@ -48,7 +48,7 @@ module.exports  = {
             console.log(data.cpf);
             
             sql.query(`insert into usuario values (${data.cpf},'${data.name}','${data.usuario}','${data.email}','${data.password}',
-            '${data.celular}','${data.crf}','1','1','teteste',1);`,(err,rs)=>{
+            '${data.celular}','${data.crf}','${data.administradaor}','${data.notificacao}','${data.fotoValue}',${data.unidade});`,(err,rs)=>{
 
                 if(err){
                     console.log(err);

@@ -18,12 +18,14 @@
     
         <!-- Main content -->
         <section class="content container-fluid">
-    
         <div class="box">
+            <% if(user.administrador){ %>
+
             <div class="box-header">
                 <h3 class="box-title">Lista</h3>
                 <a href="#" class="btn btn-xs pull-right btn-success" data-toggle="modal" data-target="#modal-create"><i class="fa fa-plus"></i> Novo</a>
             </div>
+            <%}%>
             <!-- /.box-header 
             -->
             <div class="box-body no-padding">
@@ -124,16 +126,26 @@
                 </div>
                 <div class="form-group">
                     <label for="inputPasswordCreate">Notificação</label>
-                    <input type="text" class="form-control" id="inputNotificacaoCreate" name="notificacao">
-                </div>
+                    <select name="notificacao">
+                        <option >Escolha uma opção</option>
+                        <option value="1">SIM</option>
+                        <option value="0">NÃO</option>
+                      </select>                </div>
                 <div class="form-group">
                     <label for="inputPasswordCreate">Administrador</label>
-                    <input type="text" class="form-control" id="inputAdministradorCreate" name="administrador">
+                    <select name="administrador">
+                      <option >Escolha uma opção</option>
+                      <option value="1">SIM</option>
+                      <option value="0">NÃO</option>
+                    </select>
                   </div>
                   <div class="form-group">
                       <label for="inputPasswordCreate">Unidade</label>
-                      <input type="text" class="form-control" id="inputUnidadeCreate" name="unidade">
-                    </div>
+                      <select name="unidade">
+                          <option >Escolha uma opção</option>
+                          <option value="2">Paulista</option>
+                          <option value="1">Haddok lobo</option>
+                        </select>                    </div>
                     <div class="form-group">
                         <label for="inputPhotoCreate">Foto</label>
                         <img id="imgFile" style="max-width: 128px;  max-height: 128px; display: block;" src="dist/img/avatar5.png">
