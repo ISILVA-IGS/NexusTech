@@ -1,31 +1,31 @@
 
 
-HTMLFormElement.prototype.save = function(){
-    console.log('cheguei');
+HTMLFormElement.prototype.save = function(btn){
     
     return new Promise((resolve,reject)=>{
 
+
         let form = this;
         form.addEventListener('submit',(evet)=>{
-            
+            btn.classList.add("disabled");
             event.preventDefault();
 
             var campos = form.querySelectorAll('[name]');
-              
-            if(campos[0].name=="title" && campos[0].value == ""){
-                alert('Por favor digite o Titulo do Menu');
-            }
-            else if(campos[1].name=="description" && campos[1].value == ""){
-                alert('Por favor digite a Descrição do Menu');
-            }
-            else if(campos[2].name=="price" && campos[2].value == ""){
-                alert('Por favor digite o Preço do Menu');
-            }
-            else if(campos[3].name=="photo" && campos[3].value == ""){
-                alert('Por favor adicione uma foto ao menu do hh Menu');
-
-            }
-            else{
+            var i = 0;
+            var erro = false;
+            [...campos].forEach((campo)=>{
+                if( campos[i].value == "" && !erro && campos[i].file=='' ){
+                    alert('Por favor Preencha todos campos');
+                    erro= true;
+                    console.log(campo);
+                    btn.classList.remove("disabled");
+                }   
+                i++;
+            
+            });
+            
+           
+            if(!erro){
                 let formData = new FormData(form);
 
 
