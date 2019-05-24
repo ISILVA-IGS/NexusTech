@@ -6,7 +6,10 @@ module.exports={
             if(data.idUpdate){
                 r_User.updateUser(data).then(rs=>{resolve(rs)});
 
-            }else{
+            } else if(data.idUpdateAdm){
+                r_User.updateUserAdm(data).then(rs=>{resolve(rs)});
+            }
+            else {
                 r_User.insert(data).then(rs=>{resolve(rs)});
 
             }
@@ -34,6 +37,13 @@ module.exports={
         });
         
 
+    },
+    delete(cpf){
+        return new Promise((resolve,reject)=>{
+            r_User.delete(cpf).then(rs=>{
+                resolve(rs);
+            })
+        });
     }
 
 

@@ -85,10 +85,7 @@ router.get('/monitoramento/', function(req, res, next) {
 
 router.get('/user', function(req, res, next) {
   C_user.select(req.session.user).then(json =>{
-    var array =[];
-    array[0]=json;
-    console.log(array.length);
-    res.render('user',{sensores:req.session.sensores,user:req.session.user,users:json});
+  res.render('user',{sensores:req.session.sensores,user:req.session.user,users:json});
   })
   
  
@@ -100,6 +97,11 @@ router.post('/user', function(req, res, next) {
  
 });
 
+router.delete('/user/:id', function(req, res, next) {
+ 
+  C_user.delete(req.params.id).then(rs=>{ res.send(rs); });
+ 
+});
 
 
 

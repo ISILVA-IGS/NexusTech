@@ -5,7 +5,7 @@ module.exports  = {
         return new Promise((resolve,reject)=>{
             
             
-            sql.query(`select * from usuario where email ='${data.email}' or nome_usuario = '${data.email}' `,(err,rs)=>{
+            sql.query(`select * from usuario where email ='${data.email}' or nome_usuario = '${data.email}' and ativado = 1 `,(err,rs)=>{
 
                 if(err){
                     console.log(err);
@@ -48,7 +48,7 @@ module.exports  = {
             console.log(data.cpf);
             
             sql.query(`insert into usuario values (${data.cpf},'${data.name}','${data.usuario}','${data.email}','${data.password}',
-            '${data.celular}','${data.crf}',${data.administrador},${data.notificacao},'${data.fotoValue}',${data.unidade});`,(err,rs)=>{
+            '${data.celular}','${data.crf}',${data.administrador},${data.notificacao},'${data.fotoValue}',${data.unidade},1);`,(err,rs)=>{
 
                 if(err){
                     console.log(err);
@@ -67,7 +67,7 @@ module.exports  = {
         return new Promise((resolve,reject)=>{
             
             
-            sql.query(`select * from usuario where fk_unidade = ${fkunidade}`,(err,rs)=>{
+            sql.query(`select * from usuario where fk_unidade = ${fkunidade} and ativado = 1`,(err,rs)=>{
 
                 if(err){
                     reject(err);
@@ -119,5 +119,43 @@ module.exports  = {
              });
             
         });
+    },
+    async updateUserAdm(data){
+        const sql = await mssql.connect()
+        return new Promise((resolve,reject)=>{
+            
+            
+            sql.query(`update usuario set nome_completo = '${data.name}',crf='${data.CRF}',administrador =${data.administradorUpdate},
+            notificacao=${data.notificacaoUpdate} where cpf ='${data.idUpdateAdm}'`,(err,rs)=>{
+
+                if(err){
+                    reject(err);
+                }else{
+             
+                    resolve(rs.recordset);
+                }
+
+             });
+            
+        });
+    },
+    async delete (cpf){
+        const sql = await mssql.connect()
+        return new Promise((resolve,reject)=>{
+            
+            
+            sql.query(`update usuario set ativado = 0 where cpf ='${cpf}'`,(err,rs)=>{
+
+                if(err){
+                    reject(err);
+                }else{
+             
+                    resolve(rs.recordset);
+                }
+
+             });
+            
+        });
     }
+
 }

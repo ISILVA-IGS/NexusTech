@@ -1,12 +1,13 @@
 
 
 HTMLFormElement.prototype.save = function(){
+    console.log('cheguei');
     
     return new Promise((resolve,reject)=>{
 
         let form = this;
         form.addEventListener('submit',(evet)=>{
-
+            
             event.preventDefault();
 
             var campos = form.querySelectorAll('[name]');

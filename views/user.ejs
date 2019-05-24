@@ -1,31 +1,32 @@
-    <%- include('include/header') -%>
+<%- include('include/header') -%>
 
-    <!-- Left side column. contains the logo and sidebar -->
-    <%- include('include/menuLateral') -%>
+<!-- Left side column. contains the logo and sidebar -->
+<%- include('include/menuLateral') -%>
 
 
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-          <h1>
-            Usuários
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
-            <li class="active">Usuários</li>
-          </ol>
-        </section>
-    
-        <!-- Main content -->
-        <section class="content container-fluid">
-        <div class="box">
-            <% if(user.Administrador){ %>
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      Usuários
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li class="active">Usuários</li>
+    </ol>
+  </section>
 
-            <div class="box-header">
-                <h3 class="box-title">Lista</h3>
-                <a href="#" class="btn btn-xs pull-right btn-success" data-toggle="modal" data-target="#modal-create"><i class="fa fa-plus"></i> Novo</a>
-            </div>
-            <%}%>
+  <!-- Main content -->
+  <section class="content container-fluid">
+    <div class="box">
+      <% if(user.Administrador){ %>
+
+      <div class="box-header">
+        <h3 class="box-title">Lista</h3>
+        <a href="#" class="btn btn-xs pull-right btn-success" data-toggle="modal" data-target="#modal-create"><i
+            class="fa fa-plus"></i> Novo</a>
+      </div>
+      <%}%>
             <!-- /.box-header 
             -->
             <div class="box-body no-padding">
@@ -44,336 +45,478 @@
                     </thead>
                     <tbody>
                         <%users.forEach((usr)=>{ %>
-                          <tr data-row="<%= JSON.stringify(usr) %>" >
-                              <td><img src="<%=usr.foto%>" alt="" style="height: 40px;"></td>
-                              <td><%=usr.Nome_completo%></td>
-                              <td><%=usr.Nome_usuario%></td>
-                              <td><%=usr.Tel_Cel%></td>
-                              <td><%=usr.CRF%></td>
-                              <td><%=usr.Administrador%></td>
-                              <td><%=usr.Notificacao%></td>
+      <tr data-row="<%= JSON.stringify(usr) %>">
+        <td><img src="<%=usr.foto%>" alt="" style="height: 40px;"></td>
+        <td><%=usr.Nome_completo%></td>
+        <td><%=usr.Nome_usuario%></td>
+        <td><%=usr.Tel_Cel%></td>
+        <td><%=usr.CRF%></td>
+        <td><%=usr.Administrador%></td>
+        <td><%=usr.Notificacao%></td>
 
 
-                              <td>
-                                <% if(user.Administrador){ %>
+        <td>
+          <% if(user.Administrador){ %>
 
-                                  <button type="button" class="btn btn-xs btn-info" data-toggle="modal" data-target="#modal-update"><i class="fa fa-pencil"></i> Editar</button>&nbsp;
-                                <%}%>
+          <button id="btn_updateAdm" type="button" class="btn btn-xs btn-warning btn-update" data-toggle="modal"
+            data-target="#modal-update"><i class="fa fa-lock"></i> Editar inf. Administrativa</button>&nbsp;
+          <%}%>
                                 
-                                  <button id="btn_update" type="button" class="btn btn-xs btn-warning btn-update" data-toggle="modal" data-target="#modal-update-password">
-                                      <i class="fa fa-lock"></i> Alterar Senha</button>&nbsp;
+                                  <button id="btn_update" type="button" class="btn btn-xs btn-info" data-toggle="modal" data-target="#modal-update-password">
+                                      <i class="fa fa-pencil"></i> Editar inf. Usuario</button>&nbsp;
                                   <button type="button" id="btn_Delete" class="btn btn-xs btn-danger btn-delete"><i class="fa fa-trash"></i> Excluir</button></td>
                           </tr>
                         <%})%>
 
-                    </tbody>
-                </table>
-            </div>
-            <!-- /.box-body -->
+          </tbody>
+          </table>
+    </div>
+    <!-- /.box-body -->
+</div>
+
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<div class="modal fade" id="modal-update-user">
+  <div class="modal-dialog">
+    <div class="modal-content" style="border-top: 3px solid #00c0ef;">
+      <form method="post">
+        <input type="hidden" name="id">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title">Alterar Usuário</h4>
         </div>
-    
-        </section>
-        <!-- /.content -->
-      </div>
-      <!-- /.content-wrapper -->
-    
-      <div class="modal fade" id="modal-update-user">
-        <div class="modal-dialog">
-          <div class="modal-content" style="border-top: 3px solid #f39c12;">
-            <form method="post">
-              <input type="hidden" name="id">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title">Alterar Usuário</h4>
-              </div>
-              <div class="modal-body">
-                  <div class="form-group">
-                      <label for="inputPassword">Usuário</label>
-                      <input type="text" class="form-control" id="inputPassword" name="usuario">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPassword">Email</label>
-                        <input type="email" class="form-control" id="inputPassword" name="email">
-                      </div>
-                      <div class="form-group">
-                          <label for="inputPassword">Celular</label>
-                          <input type="number" class="form-control" id="inputPassword" name="celular">
-                        </div>
-                <div class="form-group">
-                  <label for="inputPassword">Nova Senha</label>
-                  <input type="password" class="form-control" id="inputPassword" name="password">
-                </div>
-                <div class="form-group">
-                  <label for="inputPasswordConfirm">Confirmar Senha</label>
-                  <input type="password" class="form-control" id="inputPasswordConfirm" name="passwordConfirm">
-                </div>
-                <div class="form-group">
-                    <label for="inputPhotoCreate">Foto</label>
-                    <img id="imgFileUpdate" style="max-width: 128px;  max-height: 128px; display: block;" src="dist/img/avatar5.png">
-                    <input type="file"  class="form-control" id="inputPhotoUpdate" name="photo">
-                  <input type="hidden"  id="fotoUpdate" name="fotoUpdate">
-                  <input type="hidden"  id="idUpdate" name="idUpdate">
-
-                  </div>
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-warning">Salvar</button>
-              </div>
-            </form>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="inputPassword">Usuário</label>
+            <input type="text" class="form-control" id="inputPassword" name="usuario">
           </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      
-      <div class="modal fade" id="modal-create">
-        <div class="modal-dialog">
-          <div class="modal-content" style="border-top: 3px solid #00a65a;">
-            <form method="post" action="/admin/user">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title">Nova Usuário</h4>
-              </div>
-              <div class="modal-body">
-                <div class="form-group">
-                  <label for="inputNameCreate">Nome</label>
-                  <input type="text" class="form-control" id="inputNameCreate" name="name">
-                </div>
-                <div class="form-group">
-                    <label for="inputNameCreate">CPF</label>
-                    <input type="text" class="form-control" id="inputCpfCreate" name="cpf">
-                  </div>
-                  <div class="form-group">
-                      <label for="inputNameCreate">CRF</label>
-                      <input type="text" class="form-control" id="inputCrfCreate" name="crf">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputNameCreate">Celular</label>
-                        <input type="text" class="form-control" id="inputCelularCreate" name="celular">
-                      </div>
-                    
-                <div class="form-group">
-                    <label for="inputNameCreate">Usuário</label>
-                    <input type="text" class="form-control" id="inputUsuarioCreate" name="usuario">
-                  </div>
-                <div class="form-group">
-                  <label for="inputEmailCreate">E-mail</label>
-                  <input type="email" class="form-control" id="inputEmailCreate" name="email">
-                </div>
-                <div class="form-group">
-                  <label for="inputPasswordCreate">Senha</label>
-                  <input type="text" class="form-control" id="inputPasswordCreate" name="password">
-                </div>
-                <div class="form-group">
-                    <label for="inputPasswordCreate">Notificação</label>
-                    <select name="notificacao">
-                        <option >Escolha uma opção</option>
-                        <option value="1">SIM</option>
-                        <option value="0">NÃO</option>
-                      </select>                </div>
-                <div class="form-group">
-                    <label for="inputPasswordCreate">Administrador</label>
-                    <select name="administrador">
-                      <option >Escolha uma opção</option>
-                      <option value="1">SIM</option>
-                      <option value="0">NÃO</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                      <label for="inputPasswordCreate">Unidade</label>
-                      <select name="unidade">
-                          <option >Escolha uma opção</option>
-                          <option value="2">Paulista</option>
-                          <option value="1">Haddok lobo</option>
-                        </select>                    </div>
-                    <div class="form-group">
-                        <label for="inputPhotoCreate">Foto</label>
-                        <img id="imgFile" style="max-width: 128px;  max-height: 128px; display: block;" src="dist/img/avatar5.png">
-                        <input type="file"  class="form-control" id="inputPhotoCreate" name="photo">
-                      <input type="hidden"  id="fotoValue" name="fotoValue">
-
-                      </div>
-
-                  
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-success">Salvar</button>
-              </div>
-            </form>
+          <div class="form-group">
+            <label for="inputPassword">Email</label>
+            <input type="email" class="form-control" id="inputPassword" name="email">
           </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      
-      <div class="modal fade" id="modal-update">
-        <div class="modal-dialog">
-          <div class="modal-content" style="border-top: 3px solid #00c0ef;">
-            <form method="post">
-              <input type="hidden" name="id">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title">Editar Usuário</h4>
-              </div>
-              <div class="modal-body">
-                <div class="form-group">
-                  <label for="inputNameUpdate">Nome</label>
-                  <input type="text" class="form-control" id="inputNameUpdate" name="name">
-                </div>
-                <div class="form-group">
-                  <label for="inputEmailUpdate">E-mail</label>
-                  <input type="email" class="form-control" id="inputEmailUpdate" name="email">
-                </div>
-              
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-info">Salvar</button>
-              </div>
-            </form>
+          <div class="form-group">
+            <label for="inputPassword">Celular</label>
+            <input type="number" class="form-control" id="inputPassword" name="celular">
           </div>
-          <!-- /.modal-content -->
+          <div class="form-group">
+            <label for="inputPassword">Nova Senha</label>
+            <input type="password" class="form-control" id="inputPassword" name="password">
+          </div>
+          <div class="form-group">
+            <label for="inputPasswordConfirm">Confirmar Senha</label>
+            <input type="password" class="form-control" id="inputPasswordConfirm" name="passwordConfirm">
+          </div>
+          <div class="form-group">
+            <label for="inputPhotoCreate">Foto</label>
+            <img id="imgFileUpdate" style="max-width: 128px;  max-height: 128px; display: block;"
+              src="dist/img/avatar5.png">
+            <input type="file" class="form-control" id="inputPhotoUpdate" name="photo">
+            <input type="hidden" id="fotoUpdate" name="fotoUpdate">
+            <input type="hidden" id="idUpdate" name="idUpdate">
+
+          </div>
+
         </div>
-        <!-- /.modal-dialog -->
-      </div>
+        <div class="modal-footer">
+          <button  type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+          <button id="btnSaveUpdate" type="submit" class="btn btn-info">Salvar</button>
+        </div>
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
 
-      <!-- jQuery 3 -->
-      <script src="bower_components/jquery/dist/jquery.min.js"></script>
-      <!-- Bootstrap 3.3.7 -->
-      <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-      <!-- PACE -->
-      <script src="bower_components/PACE/pace.min.js"></script>
-      <!-- SlimScroll -->
-      <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-      <!-- FastClick -->
-      <script src="bower_components/fastclick/lib/fastclick.js"></script>
-      <!-- AdminLTE App -->
-      <script src="dist/js/adminlte.min.js"></script>
-      <!-- AdminLTE for demo purposes -->
-      <script src="dist/js/demo.js"></script>
-      <!-- page script -->
-      <script type="text/javascript">
-        // To make Pace works on Ajax calls
-        $(document).ajaxStart(function () {
-          Pace.restart()
-        })
-        $('.ajax').click(function () {
-          $.ajax({
-            url: '#', success: function (result) {
-              $('.ajax-content').html('<hr>Ajax Request Completed !')
-            }
-          })
-        })
+<div class="modal fade" id="modal-create">
+  <div class="modal-dialog">
+    <div class="modal-content" style="border-top: 3px solid #00a65a;">
+      <form method="post" action="/admin/user">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title">Nova Usuário</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="inputNameCreate">Nome</label>
+            <input type="text" class="form-control" id="inputNameCreate" name="name">
+          </div>
+          <div class="form-group">
+            <label for="inputNameCreate">CPF</label>
+            <input type="text" class="form-control" id="inputCpfCreate" name="cpf">
+          </div>
+          <div class="form-group">
+            <label for="inputNameCreate">CRF</label>
+            <input type="text" class="form-control" id="inputCrfCreate" name="crf">
+          </div>
+          <div class="form-group">
+            <label for="inputNameCreate">Celular</label>
+            <input type="text" class="form-control" id="inputCelularCreate" name="celular">
+          </div>
+
+          <div class="form-group">
+            <label for="inputNameCreate">Usuário</label>
+            <input type="text" class="form-control" id="inputUsuarioCreate" name="usuario">
+          </div>
+          <div class="form-group">
+            <label for="inputEmailCreate">E-mail</label>
+            <input type="email" class="form-control" id="inputEmailCreate" name="email">
+          </div>
+          <div class="form-group">
+            <label for="inputPasswordCreate">Senha</label>
+            <input type="text" class="form-control" id="inputPasswordCreate" name="password">
+          </div>
+          <div class="form-group">
+            <label for="inputPasswordCreate">Notificação</label>
+            <select name="notificacao">
+              <option>Escolha uma opção</option>
+              <option value="1">SIM</option>
+              <option value="0">NÃO</option>
+            </select> </div>
+          <div class="form-group">
+            <label for="inputPasswordCreate">Administrador</label>
+            <select name="administrador">
+              <option>Escolha uma opção</option>
+              <option value="1">SIM</option>
+              <option value="0">NÃO</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="inputPasswordCreate">Unidade</label>
+            <select name="unidade">
+              <option>Escolha uma opção</option>
+              <option value="2">Paulista</option>
+              <option value="1">Haddok lobo</option>
+            </select> </div>
+          <div class="form-group">
+            <label for="inputPhotoCreate">Foto</label>
+            <img id="imgFile" style="max-width: 128px;  max-height: 128px; display: block;" src="dist/img/avatar5.png">
+            <input type="file" class="form-control" id="inputPhotoCreate" name="photo">
+            <input type="hidden" id="fotoValue" name="fotoValue">
+
+          </div>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+          <button id="btnSaveCreate" type="submit" class="btn btn-success">Salvar</button>
+        </div>
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="modal-update">
+  <div class="modal-dialog">
+    <div class="modal-content" style="border-top: 3px solid #f39c12;">
+      <form method="POST" action="/admin/user">
+        <input type="hidden" name="idUpdateAdm" id="idUpdateAdm">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title">Editar informações administrativa</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="inputNameUpdate">Nome</label>
+            <input type="text" class="form-control" id="inputNameUpdate" name="name">
+          </div>
+          <div class="form-group">
+            <label for="inputEmailUpdate">CRF</label>
+            <input type="number" class="form-control" id="inputEmailUpdate" name="CRF">
+          </div>
+          <div class="form-group">
+            <label for="inputPasswordCreate">Notificação</label>
+            <select name="notificacaoUpdate" >
+              <option>Escolha uma opção</option>
+              <option value="1">SIM</option>
+              <option value="0">NÃO</option>
+            </select> </div>
+          <div class="form-group">
+            <label for="inputPasswordCreate">Administrador</label>
+            <select name="administradorUpdate">
+              <option>Escolha uma opção</option>
+              <option value="1">SIM</option>
+              <option value="0">NÃO</option>
+            </select>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+            <button id="btnSaveUpdateAdm" type="submit" class="btn btn-warning">Salvar</button>
+          </div>
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+<!-- jQuery 3 -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- PACE -->
+<script src="bower_components/PACE/pace.min.js"></script>
+<!-- SlimScroll -->
+<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- page script -->
+<script type="text/javascript">
+  // To make Pace works on Ajax calls
+  $(document).ajaxStart(function () {
+    Pace.restart()
+  })
+  $('.ajax').click(function () {
+    $.ajax({
+      url: '#', success: function (result) {
+        $('.ajax-content').html('<hr>Ajax Request Completed !')
+      }
+    })
+  })
 
 
 
-      </script>
-      <script src="/admin/dist/js/file.js" ></script>
-      <script src="/admin/dist/js/save.js" ></script>
+</script>
+<script src="/admin/dist/js/file.js"></script>
+<script src="/admin/dist/js/save.js"></script>
+<script src="/admin/dist/js/delete.js" ></script>
+
 
 
 
 <script>
 
-  
-    //        ##  script de CREATE   ##  
-      
-    
-      var file = new File('#inputPhotoCreate','#imgFile')
 
-      file.ler().then(rs=>{console.log(rs);
-      fotoValue.value=rs;
-      });
-    let form_modal = document.querySelector('#modal-create form');
-    
-    form_modal.save().then(rs=>{window.location.reload()}).catch(err=>{console.log(err)});
-    
-    
-    
+  //        ##  script de CREATE   ##  
+
+
+  var file = new File('#inputPhotoCreate', '#imgFile')
+
+  file.ler().then(rs => {
+    console.log(rs);
+    fotoValue.value = rs;
+  });
+  let form_modal = document.querySelector('#modal-create form');
+
+  form_modal.save().then(rs => { window.location.reload() }).catch(err => { console.log(err) });
+
+
+
 </script>
 
 <script>
-    //        ##  script de UPDATE   ##  
-    
-      var teste = new File('#inputPhotoUpdate','#imgFileUpdate')
-      teste.ler().then(rs=>{console.log(rs);
-      fotoUpdate.value=rs;
-      });
-    
-      let btn_u = document.querySelectorAll('#btn_update');
-      let form = document.querySelector('#modal-update-user form');
-      [...btn_u].forEach(function(btn){
-        btn.addEventListener('click',(e)=>{
-          
-         var tr = e.path.find(el =>{
-            if(el.tagName === 'TR'){
-              return el;
-            }
-          })
-          
-          var row = JSON.parse(tr.dataset.row);
-          console.log(row);
-          for (let data in row){
-    
-            
-            switch (data){
-    
-              case 'foto':
-                form.querySelector('img').src=`${row[data]}`;
-                fotoUpdate.value=row[data];
-              break;
-              case'Nome_usuario':
-                form.querySelector('[name = usuario]').value=`${row[data]}`
-              break
-              case'Email':
-                form.querySelector('[name = email]').value=`${row[data]}`
-              break;
-              case'Tel_Cel':
-                form.querySelector('[name = celular]').value=`${row[data]}`
-              break;
-              case'Senha':
-                form.querySelector('[name = password]').value=`${row[data]}`
-                form.querySelector('[name = passwordConfirm]').value=`${row[data]}`
+  //        ##  script de UPDATE infor usuario   ##  
 
-              break;
-              case'CPF':{
-                idUpdate.value=row[data];
-              }
-              console.log(row);
+  var teste = new File('#inputPhotoUpdate', '#imgFileUpdate')
+  teste.ler().then(rs => {
+    console.log(rs);
+    fotoUpdate.value = rs;
+  });
+
+  let btn_u = document.querySelectorAll('#btn_update');
+  let form = document.querySelector('#modal-update-user form');
+  [...btn_u].forEach(function (btn) {
+    btn.addEventListener('click', (e) => {
+
+      var tr = e.path.find(el => {
+        if (el.tagName === 'TR') {
+          return el;
+        }
+      })
+
+      var row = JSON.parse(tr.dataset.row);
+      console.log(row);
+      for (let data in row) {
 
 
+        switch (data) {
 
-            
-              
-            
-            }
-    
-    
+          case 'foto':
+            form.querySelector('img').src = `${row[data]}`;
+            fotoUpdate.value = row[data];
+            break;
+          case 'Nome_usuario':
+            form.querySelector('[name = usuario]').value = `${row[data]}`
+            break
+          case 'Email':
+            form.querySelector('[name = email]').value = `${row[data]}`
+            break;
+          case 'Tel_Cel':
+            form.querySelector('[name = celular]').value = `${row[data]}`
+            break;
+          case 'Senha':
+            form.querySelector('[name = password]').value = `${row[data]}`
+            form.querySelector('[name = passwordConfirm]').value = `${row[data]}`
+
+            break;
+          case 'CPF': {
+            idUpdate.value = row[data];
           }
-          $('#modal-update-user').modal('show');
+            console.log(row);
 
+
+
+
+
+
+        }
+
+
+      }
+      $('#modal-update-user').modal('show');
+
+
+    });
+
+
+
+  });
+
+  form.save().then(rs => { window.location.reload() }).catch(err => { console.log(err) });
+
+
+
+
+</script>
+
+<script>
+  //        ##  script de UPDATE infor administrativa   ##  
+
+
+
+  let btn_update = document.querySelectorAll('#btn_updateAdm');
+  let formUpdate = document.querySelector('#modal-update form');
+  [...btn_update].forEach(function (btn) {
+    btn.addEventListener('click', (e) => {
+
+      var tr = e.path.find(el => {
+        if (el.tagName === 'TR') {
+          return el;
+        }
+      })
+
+      var row = JSON.parse(tr.dataset.row);
+      console.log(row);
+      for (let data in row) {
+
+
+        switch (data) {
+
+          case 'Nome_completo':
+          formUpdate.querySelector('[name = name]').value = `${row[data]}`
+            break;
+          case 'CRF':
+          formUpdate.querySelector('[name = CRF]').value = `${row[data]}`
+            break
+          case 'Administrador':
+            var result = '';
+            if (row[data]) {
+              result = `
+                    <option  value="1" selected>SIM</option>
+                    <option value="0">NÃO</option>
+                `
+            }
+            else {
+              result = `
+                    <option  value="1" >SIM</option>
+                    <option value="0" selected>NÃO</option>
+                `
+            }
+            formUpdate.querySelector('[name = administradorUpdate]').innerHTML = result;
+            break;
+
+          case 'Notificacao':
+
+            var result = '';
+            if (row[data]) {
+              result = `
+                    <option  value="1" selected>SIM</option>
+                    <option value="0">NÃO</option>
+                `
+            }
+            else {
+              result = `
+                    <option  value="1" >SIM</option>
+                    <option value="0" selected>NÃO</option>
+                `
+            }
+            formUpdate.querySelector('[name = notificacaoUpdate]').innerHTML = result;
+            break;
           
-        });
-    
-    
-      
+          case 'CPF': {
+            idUpdateAdm.value = row[data];
+          }
+            console.log(row);
+
+
+
+
+
+
+        }
+
+
+      }
+      $('#modal-updateAdm').modal('show');
+
+
+    });
+
+
+
+  });
+
+  formUpdate.save().then(rs => { window.location.reload() }).catch(err => { console.log(err) });
+
+
+
+
+</script>
+
+<script>
+    //        ##  script de DELETE   ##  
+      var del = new Delete('#btn_Delete','/admin/user/');
+      del.init().then(rs=>{window.location.reload()}).catch(err=>{console.log(err)});
+  </script>
+
+<script>
+      var btnUpAdm = document.querySelector('#btnSaveUpdateAdm');
+      var btnUp = document.querySelector("#btnSaveUpdate");
+      var btnCreate = document.querySelector("#btnSaveCreate");
+
+
+      btnUpAdm.addEventListener("click",(e)=>{
+        btnUpAdm.classList.add("disabled");
       });
-    
-      form.save().then(rs=>{window.location.reload()}).catch(err=>{console.log(err)});
-    
-    
-    
-    
-    </script>
+
+      btnUp.addEventListener("click",(e)=>{
+        btnUp.classList.add("disabled");
+      });
+
+      btnCreate.addEventListener("click",(e)=>{
+        btnCreate.classList.add("disabled");
+      });
+
+
+</script>
+
 
 
 
