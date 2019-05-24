@@ -3,8 +3,8 @@ module.exports={
 
     saveOrUpdate(data){
         return new Promise((resolve,reject)=>{
-            if(data.id){
-                //update
+            if(data.idUpdate){
+                r_User.updateUser(data).then(rs=>{resolve(rs)});
 
             }else{
                 r_User.insert(data).then(rs=>{resolve(rs)});
@@ -14,6 +14,25 @@ module.exports={
         
 
 
+
+    },
+
+    select(user){
+
+        return new Promise((resolve,reject)=>{
+            if(user.Administrador){
+                
+                r_User.selectUsers(user.fk_unidade).then(rs=>{resolve(rs)});
+
+
+            }else{
+                r_User.selectUser(user.CPF).then(rs=>{
+                    resolve(rs);
+
+                })
+            }
+        });
+        
 
     }
 
