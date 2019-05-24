@@ -83,7 +83,6 @@
   <div class="modal-dialog">
     <div class="modal-content" style="border-top: 3px solid #00c0ef;">
       <form method="post">
-        <input type="hidden" name="id">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -315,7 +314,9 @@
   });
   let form_modal = document.querySelector('#modal-create form');
 
-  form_modal.save().then(rs => { window.location.reload() }).catch(err => { console.log(err) });
+  form_modal.save(btnSaveCreate).then(rs => { window.location.reload() }).catch(err => { console.log(err) 
+    
+  });
 
 
 
@@ -351,6 +352,7 @@
           case 'foto':
             form.querySelector('img').src = `${row[data]}`;
             fotoUpdate.value = row[data];
+            inputPhotoUpdate.file= row[data];
             break;
           case 'Nome_usuario':
             form.querySelector('[name = usuario]').value = `${row[data]}`
@@ -389,7 +391,7 @@
 
   });
 
-  form.save().then(rs => { window.location.reload() }).catch(err => { console.log(err) });
+  form.save(btnSaveUpdate).then(rs => { window.location.reload() }).catch(err => { console.log(err) });
 
 
 
@@ -483,7 +485,7 @@
 
   });
 
-  formUpdate.save().then(rs => { window.location.reload() }).catch(err => { console.log(err) });
+  formUpdate.save(btnSaveUpdateAdm).then(rs => { window.location.reload() }).catch(err => { console.log(err) });
 
 
 
