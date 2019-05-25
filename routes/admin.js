@@ -92,7 +92,7 @@ router.get('/user', function(req, res, next) {
 });
 
 router.post('/user', function(req, res, next) {
-  C_user.saveOrUpdate(req.fields).then(rs=>{ res.send(rs); });
+  C_user.saveOrUpdate(req.fields).then(rs=>{ res.send(rs); }).catch(err=>{res.send(err)});
   
  
 });

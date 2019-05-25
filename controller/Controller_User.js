@@ -1,4 +1,5 @@
 const r_User = require("../repositorio/repositorio_user");
+const r_Sensores = require("../repositorio/repositorio_Sensores");
 module.exports={
 
     saveOrUpdate(data){
@@ -10,7 +11,10 @@ module.exports={
                 r_User.updateUserAdm(data).then(rs=>{resolve(rs)});
             }
             else {
-                r_User.insert(data).then(rs=>{resolve(rs)});
+                r_User.insert(data).then(rs=>{resolve(rs)
+                    this.selectSensores(data.unidade,data.CPF);
+                   
+                }).catch(err=>{reject(err)});
 
             }
         });
@@ -45,6 +49,7 @@ module.exports={
             })
         });
     }
+ 
 
 
 }

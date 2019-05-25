@@ -11,14 +11,19 @@ class File {
         return new Promise((resolve,reject)=>{
             document.querySelector(this.input).addEventListener('change',(e)=>{
                 let file = new FileReader();
-                file.readAsDataURL(e.target.files[0]);
-                var image = this.img;
-            
-                file.onload=function(){
+                try {
+                    file.readAsDataURL(e.target.files[0]);
+                    var image = this.img;
                 
-                    document.querySelector(image).src = file.result;
-                    resolve(file.result);
+                    file.onload=function(){
+                    
+                        document.querySelector(image).src = file.result;
+                        resolve(file.result);
+                    }
+                } catch (error) {
+                    reject(error);
                 }
+               
             
             });
         });

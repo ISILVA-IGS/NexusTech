@@ -175,14 +175,14 @@
           <div class="form-group">
             <label for="inputPasswordCreate">Notificação</label>
             <select name="notificacao">
-              <option>Escolha uma opção</option>
+              <option value="">Escolha uma opção</option>
               <option value="1">SIM</option>
               <option value="0">NÃO</option>
             </select> </div>
           <div class="form-group">
             <label for="inputPasswordCreate">Administrador</label>
             <select name="administrador">
-              <option>Escolha uma opção</option>
+              <option value="">Escolha uma opção</option>
               <option value="1">SIM</option>
               <option value="0">NÃO</option>
             </select>
@@ -190,7 +190,7 @@
           <div class="form-group">
             <label for="inputPasswordCreate">Unidade</label>
             <select name="unidade">
-              <option>Escolha uma opção</option>
+              <option value="">Escolha uma opção</option>
               <option value="2">Paulista</option>
               <option value="1">Haddok lobo</option>
             </select> </div>
@@ -238,14 +238,12 @@
           <div class="form-group">
             <label for="inputPasswordCreate">Notificação</label>
             <select name="notificacaoUpdate" >
-              <option>Escolha uma opção</option>
               <option value="1">SIM</option>
               <option value="0">NÃO</option>
             </select> </div>
           <div class="form-group">
             <label for="inputPasswordCreate">Administrador</label>
             <select name="administradorUpdate">
-              <option>Escolha uma opção</option>
               <option value="1">SIM</option>
               <option value="0">NÃO</option>
             </select>
@@ -309,14 +307,19 @@
   var file = new File('#inputPhotoCreate', '#imgFile')
 
   file.ler().then(rs => {
-    console.log(rs);
+    
     fotoValue.value = rs;
   });
   let form_modal = document.querySelector('#modal-create form');
 
-  form_modal.save(btnSaveCreate).then(rs => { window.location.reload() }).catch(err => { console.log(err) 
-    
-  });
+  form_modal.save(btnSaveCreate).then(rs => {
+    alert('usuario criado com sucesso !!, Entre em contato com suporte da NexusTech para ativar o novo suaurio');
+      
+     window.location.reload() }).catch(err =>{ 
+   console.log(err);
+  }).catch(er=>{
+    alert(er);
+  })
 
 
 
@@ -391,7 +394,8 @@
 
   });
 
-  form.save(btnSaveUpdate).then(rs => { window.location.reload() }).catch(err => { console.log(err) });
+  form.save(btnSaveUpdate).then(rs => {
+     window.location.reload() }).catch(err => { console.log(err) });
 
 
 

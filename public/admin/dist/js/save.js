@@ -11,18 +11,28 @@ HTMLFormElement.prototype.save = function(btn){
             event.preventDefault();
 
             var campos = form.querySelectorAll('[name]');
-            var i = 0;
+            
             var erro = false;
             [...campos].forEach((campo)=>{
-                if( campos[i].value == "" && !erro && campos[i].file=='' ){
-                    alert('Por favor Preencha todos campos');
-                    erro= true;
-                    console.log(campo);
-                    btn.classList.remove("disabled");
+
+               
+                if( campo.value == "" && !erro ){
+        
+                    if( !campo.file==""){
+                    
+                    }else{
+                        console.log(campo.file);
+                        alert('Por favor Preencha todos campos');
+                        erro= true;
+                    
+                        btn.classList.remove("disabled");
+                    }
+                   
                 }   
-                i++;
+                
             
             });
+            console.dir(campos)
             
            
             if(!erro){
