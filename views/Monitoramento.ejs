@@ -1,376 +1,340 @@
+<!-- Main Header -->
+<%- include('include/header') -%>
 
-    <!-- Main Header -->
-    <%- include('include/header') -%>
-
-    <!-- Left side column. contains the logo and sidebar -->
-    <%- include('include/menuLateral') -%>
+<!-- Left side column. contains the logo and sidebar -->
+<%- include('include/menuLateral') -%>
 
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-        <h1 style="margin-left:1px">
-          Status Atual
-        </h1>
-      </section>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+   
+  </section>
 
-      <!-- Main content -->
+  <!-- Main content -->
 
-      <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
-          <span class="info-box-icon bg-orange"><i class="fa fa-fw  ion-thermometer"></i></span>
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box">
+      <span class="info-box-icon bg-orange"><i class="fa fa-fw  ion-thermometer"></i></span>
 
-          <div class="info-box-content">
-            <span class="info-box-text">Temp. Atual</span>
-            <span id="tem" class="info-box-number"><small> Cº</small></span>
-            <span id="textTemp" style="font-size: 15px">Sit. Normal</span>
-            <img id="imgTemp" src="/admin/dist/img/c_green.jpg" style="max-width:17px; margin-bottom: 2px">
+      <div class="info-box-content">
+        <span class="info-box-text">Temp. Atual</span>
+        <span id="tem" class="info-box-number"><small> Cº</small></span>
+        <span id="textTemp" style="font-size: 15px">Sit. Normal</span>
+        <img id="imgTemp" src="/admin/dist/img/c_green.jpg" style="max-width:17px; margin-bottom: 2px">
 
-          </div>
-          <!-- /.info-box-content -->
-        </div>
-        <!-- /.info-box -->
+      </div>
+      <!-- /.info-box-content -->
+    </div>
+    <!-- /.info-box -->
+  </div>
+
+  <!--2 campo -->
+
+  <div class="col-md-3 col-sm-6 col-xs-12" style="margin-left: -14px">
+    <div class="info-box">
+      <span class="info-box-icon bg-blue"><i class="fa fa-fw ion-cloud"></i></span>
+
+      <div class="info-box-content">
+        <span class="info-box-text">Umidade Atual</span>
+        <span id="umi" class="info-box-number"><small>%</small></span>
+        <span id="textUmid" style="font-size: 15px">Sit. Normal</span>
+        <img id="imgUmid" src="/admin/dist/img/c_green.jpg" style="max-width:17px; margin-bottom: 2px">
+
       </div>
 
-      <!--2 campo -->
+      <!--Inicio dos novos campos-->
 
-      <div class="col-md-3 col-sm-6 col-xs-12" style="margin-left: -14px">
-        <div class="info-box">
-          <span class="info-box-icon bg-blue"><i class="fa fa-fw ion-cloud"></i></span>
+      <!-- /.info-box-content -->
+    </div>
+  </div>
+  <!-- /.info-box -->
+  <div class="box-footer" style=" width: 515px; max-height:90px; margin-left:545px;">
 
-          <div class="info-box-content">
-            <span class="info-box-text">Umidade Atual</span>
-            <span id="umi" class="info-box-number"><small>%</small></span>
-            <span id="textUmid" style="font-size: 15px">Sit. Normal</span>
-            <img id="imgUmid" src="/admin/dist/img/c_green.jpg" style="max-width:17px; margin-bottom: 2px">
+    <img src="/admin/dist/img/barra.png" style="max-height: 60px; margin-left: -375px; margin-top: 4px;">
 
-          </div>
+    <div class="col-sm-3 col-xs-6">
+      <div class="description-block border-right">
+        <span style="font-size:20px;" class="description-percentage text-green "><i class="fa fa-caret-down"></i> 17
+          Cº</span>
+        </br>
 
-          <!--Inicio dos novos campos-->
-
-          <!-- /.info-box-content -->
-        </div>
-      </div>
-      <!-- /.info-box -->
-      <div class="box-footer" style=" width: 515px; max-height:90px; margin-left:545px;">
-
-        <img src="/admin/dist/img/barra.png" style="max-height: 60px; margin-left: -375px; margin-top: 4px;">
-
-        <div class="col-sm-3 col-xs-6">
-          <div class="description-block border-right">
-            <span style="font-size:20px;" class="description-percentage text-green "><i class="fa fa-caret-down"></i> 17
-              Cº</span>
-            </br>
-
-            <span class="description-text">Temp Min.</span>
-          </div>
-
-          <!-- /.description-block -->
-        </div>
-
-
-        <img src="/admin/dist/img/barra.png" style="max-height: 60px; margin-left: 120px; margin-top: 4px;">
-
-
-
-        <div class="col-sm-3 col-xs-6 ">
-          <div class="description-block border-right">
-            <span style="font-size:20px;" class="description-percentage text-red"><i class="fa fa-caret-up"></i> 26
-              Cº</span>
-            </br>
-
-            <span class="description-text  ">Temp Max.</span>
-          </div>
-        </div>
-
-        <img src="/admin/dist/img/barra.png" style="max-height: 60px; margin-left: 115px; margin-top: 4px;">
-
-
-        <div class="col-sm-3 col-xs-6 ">
-          <div class="description-block border-right">
-            <span style="font-size:20px;" class="description-percentage text-green"><i class="fa fa-caret-down"></i>
-              65.5 %</span>
-            </br>
-
-            <span class="description-text  ">Umid Min.</span>
-          </div>
-        </div>
-
-        <div class="col-sm-3 col-xs-6 ">
-          <div class="description-block border-right">
-            <span style="font-size:20px;" class="description-percentage text-red"><i class="fa fa-caret-up"></i> 90.5
-              %</span>
-            </br>
-
-            <span class="description-text  ">Umid Max.</span>
-          </div>
-        </div>
-
-
-
-      <input id="idSensor" value="<%=id%>" type="hidden">
-
-
-        <!--Final dos novos campos-->
+        <span class="description-text">Temp Min.</span>
       </div>
 
+      <!-- /.description-block -->
+    </div>
+
+
+    <img src="/admin/dist/img/barra.png" style="max-height: 60px; margin-left: 120px; margin-top: 4px;">
 
 
 
-      <div id="container" style="min-width: 310px;max-width: 1045px; height: 450px; margin:15px ;margin-top:30px ;">
+    <div class="col-sm-3 col-xs-6 ">
+      <div class="description-block border-right">
+        <span style="font-size:20px;" class="description-percentage text-red"><i class="fa fa-caret-up"></i> 26
+          Cº</span>
+        </br>
+
+        <span class="description-text  ">Temp Max.</span>
       </div>
+    </div>
+
+    <img src="/admin/dist/img/barra.png" style="max-height: 60px; margin-left: 115px; margin-top: 4px;">
+
+
+    <div class="col-sm-3 col-xs-6 ">
+      <div class="description-block border-right">
+        <span style="font-size:20px;" class="description-percentage text-green"><i class="fa fa-caret-down"></i>
+          65.5 %</span>
+        </br>
+
+        <span class="description-text  ">Umid Min.</span>
+      </div>
+    </div>
+
+    <div class="col-sm-3 col-xs-6 ">
+      <div class="description-block border-right">
+        <span style="font-size:20px;" class="description-percentage text-red"><i class="fa fa-caret-up"></i> 90.5
+          %</span>
+        </br>
+
+        <span class="description-text  ">Umid Max.</span>
+      </div>
+    </div>
+
+
+
+    <input id="idSensor" value="<%=id%>" type="hidden">
+
+
+    <!--Final dos novos campos-->
+  </div>
+
+
+
+  <div class="col-md-12">
+    <div id="container" style="min-width: 210px;max-width: 1047px; height: 385px ; ">
+    </div>
+  </div>
+
+
+
+  
+  <!-- /.info-box-content -->
 
 
 
 
 
-      <!-- /.content -->
-
-      <!-- /.content-wrapper -->
+  <!-- /.info-box -->
 
 
 
+  <!-- /.content -->
+
+  <!-- /.content-wrapper -->
 
 
-      <!-- jQuery 3 -->
-
-      <script src="https://code.highcharts.com/highcharts.js"></script>
-      <script src="https://code.highcharts.com/modules/exporting.js"></script>
-      <script src="https://code.highcharts.com/modules/export-data.js"></script>
-      <script src="/socket.io/socket.io.js"></script>
-      <script src='/admin/dist/js/eventsVerificacao.js'></script>
-      <script>
-        var socket = io('https://nexustech.azurewebsites.net');
-
-       //var socket = io('localhost:8080');
-
-        var events = new eventsVericacao();
-
-        socket.on('pisca_green', function (tipo) {
-
-          events.startGreen(tipo);
-
-        });
-
-        socket.on('pisca_yellow', function (tipo) {
-
-          events.startYellow(tipo);
-
-
-        });
-
-
-        socket.on('pisca_red', function (tipo) {
-
-          events.startRed(tipo);
-
-
-        });
-
-
-        socket.on('stop', function (tipo) {
-
-          events.stop(tipo);
-
-        });
-      </script>
-
-      <script>
+</div>
 
 
 
+  <!-- jQuery 3 -->
+
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src='/admin/dist/js/eventsVerificacao.js'></script>
+  <script>
+    //  var socket = io('https://nexustech.azurewebsites.net');
+
+    var socket = io('localhost:8080');
+
+    var events = new eventsVericacao();
+
+    socket.on('pisca_green', function (tipo) {
+
+      events.startGreen(tipo);
+
+    });
+
+    socket.on('pisca_yellow', function (tipo) {
+
+      events.startYellow(tipo);
 
 
+    });
 
 
-        function recuperar_dados(instancia) {
-          var series = instancia.series[0];
-          var seriesz = instancia.series[1];
-          setTimeout(function () {
-            fetch('/admin/looping?id=' + idSensor.value, { method: 'POST' }).then(r => {
-              return r.json()
+    socket.on('pisca_red', function (tipo) {
 
-            }).then(res => {
+      events.startRed(tipo);
 
 
-              time = new Date().getTime(),
+    });
 
 
+    socket.on('stop', function (tipo) {
 
+      events.stop(tipo);
 
-                document.querySelector("#tem").innerHTML = res.temp + " Cº";
-              document.querySelector("#umi").innerHTML = res.umid + " %";
+    });
+  </script>
 
-              series.addPoint([time, res.umid], true, true);
-              seriesz.addPoint([time, res.temp], true, true);
-
-              recuperar_dados(instancia);
-
-
-
-            })
-          }, 5000);
-        }
+  <script>
 
 
 
 
 
 
-        myHeaders = new Headers({
-          "id": "idSensor.value",
 
-        });
-
-        fetch('/admin/start?id=' + idSensor.value, { method: 'POST', headers: myHeaders }).then(r => {
+    function recuperar_dados(instancia) {
+      var series = instancia.series[0];
+      var seriesz = instancia.series[1];
+      setTimeout(function () {
+        fetch('/admin/looping?id=' + idSensor.value, { method: 'POST' }).then(r => {
           return r.json()
 
-        }).then(rs => {
+        }).then(res => {
 
-          console.log(rs);
 
-          Highcharts.chart('container', {
-            chart: {
-              type: 'line',
-              events: {
-
-                load: function () {
+          time = new Date().getTime(),
 
 
 
 
-                  recuperar_dados(this);
+            document.querySelector("#tem").innerHTML = res.temp + " Cº";
+          document.querySelector("#umi").innerHTML = res.umid + " %";
 
+          series.addPoint([time, res.umid], true, true);
+          seriesz.addPoint([time, res.temp], true, true);
 
-                },
-
-
-
-
-
-
-
-              }
-            },
-            time: {
-              useUTC: false
-            },
-            title: {
-              text: rs.unidade
-            },
-            subtitle: {
-              text: rs.apelido
-            },
-            xAxis: {
-              type: 'datetime',
-              tickPixelInterval: 200,
-              // categories: json.time
-            },
-            yAxis: {
-              title: {
-                text: 'Temperatura (°C)    Umidade %'
-              }
-            },
-            plotOptions: {
-              line: {
-                dataLabels: {
-                  enabled: true
-                },
-                enableMouseTracking: true
-              }
-            },
-            series: [{
-              name: 'Umidade',
-
-              data: (function () {
-                // generate an array of random data
-                var data = [],
-                  //time = (new Date()).getTime(),
-                  i;
-                var c = 9
-                for (i = -9; i <= 0; i += 1) {
-                  time = (new Date()).getTime(),
-
-                    data.push({
-                      x: time + i * 1000,
-                      y: rs.umid[c]
-                    });
-                  c--;
-                }
-                return data;
-              }())
-            }, {
-              name: 'Temperatura',
-
-              data: (function () {
-                // generate an array of random data
-                var data = [],
-                  //time = (new Date()).getTime(),i;
-                  c = 9;
-
-                for (i = -9; i <= 0; i += 1) {
-                  time = (new Date()).getTime(),
+          recuperar_dados(instancia);
 
 
 
-                    data.push({
-                      x: time + i * 1000,
-                      y: rs.temp[c]
-                    });
-                  c--
-                }
-                return data;
-              }())
-            }
-
-            ]
-          });
-        });
-
-
-
-
-
-
-
-
-
-
-
-      </script>
-
-      <!-- jQuery 3 -->
-      <script src="bower_components/jquery/dist/jquery.min.js"></script>
-      <!-- Bootstrap 3.3.7 -->
-      <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-      <!-- PACE -->
-      <script src="bower_components/PACE/pace.min.js"></script>
-      <!-- SlimScroll -->
-      <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-      <!-- FastClick -->
-      <script src="bower_components/fastclick/lib/fastclick.js"></script>
-      <!-- AdminLTE App -->
-      <script src="dist/js/adminlte.min.js"></script>
-      <!-- AdminLTE for demo purposes -->
-      <script src="dist/js/demo.js"></script>
-      <!-- page script -->
-      <script type="text/javascript">
-        // To make Pace works on Ajax calls
-        $(document).ajaxStart(function () {
-          Pace.restart()
         })
-        $('.ajax').click(function () {
-          $.ajax({
-            url: '#', success: function (result) {
-              $('.ajax-content').html('<hr>Ajax Request Completed !')
+      }, 5000);
+    }
+
+
+
+
+
+
+    myHeaders = new Headers({
+      "id": "idSensor.value",
+
+    });
+
+    fetch('/admin/start?id=' + idSensor.value, { method: 'POST', headers: myHeaders }).then(r => {
+      return r.json()
+
+    }).then(rs => {
+
+      console.log(rs);
+
+      Highcharts.chart('container', {
+        chart: {
+          type: 'line',
+          events: {
+
+            load: function () {
+
+
+
+
+              recuperar_dados(this);
+
+
+            },
+
+
+
+
+
+
+
+          }
+        },
+        time: {
+          useUTC: false
+        },
+        title: {
+          text: rs.unidade
+        },
+        subtitle: {
+          text: rs.apelido
+        },
+        xAxis: {
+          type: 'datetime',
+          tickPixelInterval: 200,
+          // categories: json.time
+        },
+        yAxis: {
+          title: {
+            text: 'Temperatura (°C)    Umidade %'
+          }
+        },
+        plotOptions: {
+          line: {
+            dataLabels: {
+              enabled: true
+            },
+            enableMouseTracking: true
+          }
+        },
+        series: [{
+          name: 'Umidade',
+
+          data: (function () {
+            // generate an array of random data
+            var data = [],
+              //time = (new Date()).getTime(),
+              i;
+            var c = 9
+            for (i = -9; i <= 0; i += 1) {
+              time = (new Date()).getTime(),
+
+                data.push({
+                  x: time + i * 1000,
+                  y: rs.umid[c]
+                });
+              c--;
             }
-          })
-        })
+            return data;
+          }())
+        }, {
+          name: 'Temperatura',
+
+          data: (function () {
+            // generate an array of random data
+            var data = [],
+              //time = (new Date()).getTime(),i;
+              c = 9;
+
+            for (i = -9; i <= 0; i += 1) {
+              time = (new Date()).getTime(),
 
 
 
-      </script>
+                data.push({
+                  x: time + i * 1000,
+                  y: rs.temp[c]
+                });
+              c--
+            }
+            return data;
+          }())
+        }
+
+        ]
+      });
+    });
 
 
 
@@ -378,4 +342,48 @@
 
 
 
-</html>
+
+
+
+
+  </script>
+
+  <!-- jQuery 3 -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <!-- Bootstrap 3.3.7 -->
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- PACE -->
+  <script src="bower_components/PACE/pace.min.js"></script>
+  <!-- SlimScroll -->
+  <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+  <!-- FastClick -->
+  <script src="bower_components/fastclick/lib/fastclick.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="dist/js/demo.js"></script>
+  <!-- page script -->
+  <script type="text/javascript">
+    // To make Pace works on Ajax calls
+    $(document).ajaxStart(function () {
+      Pace.restart()
+    })
+    $('.ajax').click(function () {
+      $.ajax({
+        url: '#', success: function (result) {
+          $('.ajax-content').html('<hr>Ajax Request Completed !')
+        }
+      })
+    })
+
+
+
+  </script>
+
+
+
+
+
+
+
+  </html>
