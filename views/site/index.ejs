@@ -18,7 +18,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 	<!-- Compressed Scripts -->
-	<script src="js/slides.min.js" type="text/javascript"></script>
+  <script src="js/slides.min.js" type="text/javascript"></script>
+
+	<!-- Link do chat -->
+  
+  <script src="https://wchat.freshchat.com/js/widget.js"></script>
 
 	<!-- Custom Scripts -->
 	<!-- <script src="js/custom.js" type="text/javascript"></script> -->
@@ -531,6 +535,11 @@ li a:hover {
       </div>
   <div class="background" style="background-image:url(logo/plano-de-fundo.png)"></div>
 </section>
-		
+<script>
+    window.fcWidget.init({
+      token: "3703ab4d-ca50-48e2-a441-9dc4576971d5",
+      host: "https://wchat.freshchat.com"
+    });
+  </script>
 </body>
 </html>
