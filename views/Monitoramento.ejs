@@ -64,6 +64,18 @@
       <div class="info-box-content">
         <span class="info-box-text">Média</span>
         <span id="tem" class="info-box-number"><small> Cº</small></span>
+
+      </div>
+      <!-- /.info-box-content -->
+    </div>
+    <!-- /.info-box -->
+  </div>
+
+<div class="col-md-3 col-sm-6 col-xs-12" style="display: block" id="tem11">
+    <div class="info-box">
+      <span class="info-box-icon bg-orange"><i class="fa fa-fw  ion-thermometer"></i></span>
+
+      <div class="info-box-content">
         <span id="textTemp" style="font-size: 15px">Mediana</span>
         <span id="tem" class="info-box-number"><small> Cº</small></span>
 
@@ -72,7 +84,6 @@
     </div>
     <!-- /.info-box -->
   </div>
-
 
 
 
@@ -100,6 +111,20 @@
         <div class="info-box-content">
           <span class="info-box-text">Média</span>
           <span id="umi" class="info-box-number"><small>%</small></span>
+  
+        </div>
+  
+        <!--Inicio dos novos campos-->
+  
+        <!-- /.info-box-content -->
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12" style="display: none" id="umi1">
+      <div class="info-box">
+        <span class="info-box-icon bg-blue"><i class="fa fa-fw ion-cloud"></i></span>
+  
+        <div class="info-box-content">
           <span id="textUmid" style="font-size: 15px">Mediana</span>
           <span id="umi" class="info-box-number"><small>%</small></span>
   
@@ -214,18 +239,22 @@
 
 function umid(){
   tem1.style.display='none';
+  tem11.style.display='none';
   tem2.style.display='none';
   tempA.style.display='none';
   umi1.style.display='block';
+  umi11.style.display='block';
   umi2.style.display='block';
   umidA.style.display='block';
 }
 
 function temp(){
   tem1.style.display='block';
+  tem11.style.display='block';
   tem2.style.display='block';
   tempA.style.display='block';
   umi1.style.display='none';
+  umi11.style.display='none';
   umi2.style.display='none';
   umidA.style.display='none';
 }
