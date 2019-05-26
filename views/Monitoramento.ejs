@@ -50,7 +50,12 @@
     </div>
   </div>
   <!-- /.info-box -->
-  <div class="col-md-3 col-sm-6 col-xs-12">
+  <h1>Analytics</h1>
+  <select id="analy">
+    <option value="0" onclick="temp()">Temperatura</option>
+    <option value="1" onclick="umid()">Umidade</option>
+  </select>
+  <div class="col-md-3 col-sm-6 col-xs-12" style="display: none" id="tem1">
     <div class="info-box">
       <span class="info-box-icon bg-orange"><i class="fa fa-fw  ion-thermometer"></i></span>
 
@@ -69,7 +74,7 @@
 
 
 
-    <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="col-md-3 col-sm-6 col-xs-12" style="display: none" id="tem2">
       <div class="info-box">
         <span class="info-box-icon bg-orange"><i class="fa fa-fw  ion-thermometer"></i></span>
   
@@ -86,7 +91,7 @@
     </div>
 
 
-    <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="col-md-3 col-sm-6 col-xs-12" style="display: block" id="umi1">
       <div class="info-box">
         <span class="info-box-icon bg-blue"><i class="fa fa-fw ion-cloud"></i></span>
   
@@ -104,7 +109,7 @@
       </div>
     </div>
 
-    <div class="col-md-3 col-sm-6 col-xs-12">
+    <div class="col-md-3 col-sm-6 col-xs-12" style="display: block" id="umi2">
       <div class="info-box">
         <span class="info-box-icon bg-blue"><i class="fa fa-fw ion-cloud"></i></span>
   
@@ -205,9 +210,19 @@
   <script>
 
 
+function temp(){
+  tem1.style.display='none';
+  tem2.style.display='none';
+  umi1.style.display='block';
+  umi2.style.display='block';
+}
 
-
-
+function umid(){
+  tem1.style.display='block';
+  tem2.style.display='block';
+  umi1.style.display='none';
+  umi2.style.display='none';
+}
 
 
     function recuperar_dados(instancia) {
