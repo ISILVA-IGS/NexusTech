@@ -13,8 +13,13 @@
   </section>
 
   <!-- Main content -->
-
-  <div class="col-md-3 col-sm-6 col-xs-12">
+  <h2>Analytics
+    <select id="analy">
+      <option value="0" onclick="temp()">Temperatura</option>
+      <option value="1" onclick="umid()">Umidade</option>
+    </select>
+  </h2>
+  <div class="col-md-3 col-sm-6 col-xs-12" style="display: block" id="tempA">
     <div class="info-box">
       <span class="info-box-icon bg-orange"><i class="fa fa-fw  ion-thermometer"></i></span>
 
@@ -32,7 +37,7 @@
 
   <!--2 campo -->
 
-  <div class="col-md-3 col-sm-6 col-xs-12" style="margin-left: -14px">
+  <div class="col-md-3 col-sm-6 col-xs-12" style="margin-left: -14px; display: none" id="umidA">
     <div class="info-box">
       <span class="info-box-icon bg-blue"><i class="fa fa-fw ion-cloud"></i></span>
 
@@ -50,12 +55,6 @@
     </div>
   </div>
   <!-- /.info-box -->
-  <h6>Analytics
-    <select id="analy">
-      <option value="0" onclick="temp()">Temperatura</option>
-      <option value="1" onclick="umid()">Umidade</option>
-    </select>
-  </h6>
 
   <div class="col-md-3 col-sm-6 col-xs-12" style="display: block" id="tem1">
     <div class="info-box">
@@ -215,15 +214,19 @@
 function umid(){
   tem1.style.display='none';
   tem2.style.display='none';
+  tempA.style.display='none';
   umi1.style.display='block';
   umi2.style.display='block';
+  umidA.style.display='block';
 }
 
 function temp(){
   tem1.style.display='block';
   tem2.style.display='block';
+  tempA.style.display='block';
   umi1.style.display='none';
   umi2.style.display='none';
+  umidA.style.display='none';
 }
 
 
