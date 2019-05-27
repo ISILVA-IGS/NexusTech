@@ -47,7 +47,8 @@ class Controller_dashBoard{
 
   selectSensores(cpf){
     return new Promise((resolve,reject)=>{
-      rUser.selectSensores(cpf).then(rs=>{resolve(rs)})
+        console.log(cpf);
+      rUser.selectSensores(cpf).then(rs=>{console.log('voltoouuuu');resolve(rs)})
 
 
 

@@ -22,18 +22,19 @@ module.exports  = {
 
     },
 
-    async selectSensores(cpf){
+    async selectSensores(id){
         const sql = await mssql.connect()
         return new Promise((resolve,reject)=>{
             
             
-            sql.query(`select  a.*  from sensor_usuario inner join usuario 
-            on cpf = fk_cpf inner join sensor as a on fk_sensor = idsensor where cpf = ${cpf}`,(err,rs)=>{
+            sql.query(`select a.*  from sensor_usuario inner join usuario 
+                        on idUSUARIO = fkUsuario inner join sensor as a on fksensor = 
+                        idsensor where idUSUARIO  = ${id}`,(err,rs)=>{
 
                 if(err){
+
                     reject(err);
                 }else{
-             
                     resolve(rs.recordset);
                 }
 

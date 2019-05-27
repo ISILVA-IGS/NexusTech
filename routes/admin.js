@@ -33,7 +33,7 @@ router.post('/login', function(req, res, next) {
   if(!erro){
     
     login.autenticar(req).then((user)=>{
-      
+      console.log(user);
       req.session.user = user;
       res.redirect('/admin/monitoramento');
     }).catch((erros)=>{
@@ -65,8 +65,9 @@ router.get('/login', function(req, res, next) {
 
 router.get('/monitoramento/', function(req, res, next) {
   console.log(req.session.user);
-  C_dashBoard.selectSensores(req.session.user.CPF).then(sensores=>{
+  C_dashBoard.selectSensores(req.session.user.idUsuario).then(sensores=>{
     var id;
+    console.log('passouuu')
     if(req.query.id){
       id=  req.query.id
     }else{
