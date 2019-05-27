@@ -41,5 +41,26 @@ module.exports={
 
         
 
+    },
+    async selectAlerta(id) {
+
+        const sql = await mssql.connect()
+        return new Promise((resolve,reject)=>{
+            sql.query(`select a.* from alerta as a inner join sensor on fk_sensor = idsensor  where idsensor = ${id}`
+             ,(err,result)=>{
+                
+                if(err){
+                    console.log(err)
+                }else{
+                    resolve(result.recordset);
+                }
+    
+    
+            });
+        });
+
+        
+
     }
+
 }

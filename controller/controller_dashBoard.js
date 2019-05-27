@@ -13,8 +13,8 @@ class Controller_dashBoard{
   
   selectToplast10(id){
     
-    return new Promise((resolve,reject)=>{
-      repositorio_Monitoramento.selectTodosSensor(id).then(rs=>{
+    return new Promise( (resolve,reject)=>{
+      repositorio_Monitoramento.selectTodosSensor(id).then (rs  =>  {
             
         var time =[];
         var temp = [];
@@ -29,10 +29,14 @@ class Controller_dashBoard{
           
             
         }
+
+        this.filtroAlerta(id).then(alertas=>{
+          var json={temp,umid,apelido:rs.recordset[0].apelido,unidade:rs.recordset[0].unidade};
+          global.alerta=alertas;
+          resolve(json)
+        })
         
-        var json={temp,umid,apelido:rs.recordset[0].apelido,unidade:rs.recordset[0].unidade};
-              
-        resolve(json)
+        
         
       })
     });
@@ -49,6 +53,54 @@ class Controller_dashBoard{
 
     });
   }
+
+  filtroAlerta(id) {
+    return new Promise((resolve, reject) => {
+        repositorio_Monitoramento.selectAlerta(id).then(alerta => {
+          
+            var json = { te: { min: '', max: '' }, ta: { min: '', max: '' }, tr: { min: '', max: '' }, ue: { min: '', max: '' }, ua: { min: '', max: '' }, ur: { min: '', max: '' } }
+            alerta.forEach((rs) => {
+                if (rs.Tipo_Unidade == "T") {
+                    if (rs.Tipo_Alerta == 'R') {
+                        json.tr.min = rs.min;
+                        json.tr.max = rs.max;
+
+                    }
+                    else if (rs.Tipo_Alerta == 'A') {
+                        json.ta.min = rs.min;
+                        json.ta.max = rs.max;
+                    }
+                    else if (rs.Tipo_Alerta == 'E') {
+                        json.te.min = rs.min;
+                        json.te.max = rs.max;
+                    }
+
+                } else {
+                    if (rs.Tipo_Alerta == 'R') {
+                        json.ur.min = rs.min;
+                        json.ur.max = rs.max;
+                    }
+                    else if (rs.Tipo_Alerta == 'A') {
+                        json.ar.min = rs.min;
+                        json.ar.max = rs.max;
+                    }
+                    else if (rs.Tipo_Alerta == 'E') {
+                        json.er.min = rs.min;
+                        json.er.max = rs.max;
+
+                    }
+                }
+            });
+
+            resolve(json);
+
+
+
+        });
+
+
+    });
+}
 
 
 
