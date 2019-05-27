@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NexusTech</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+  <meta name="author" content="Hcode.com.br" />
+  <meta name="theme-color" content="#ADD8E6">
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+
+  <div class="wrapper">
+    <input id="idSensor" value="<%=id%>" type="hidden">
+    <!-- Main Header -->
+    <%- include('include/header') -%>
+
+    <!-- Left side column. contains the logo and sidebar -->
+    <%- include('include/menuLateral') -%>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        
+        <div class="col-sm-3 col-xs-6 ">
+            <div class="description-block border-right">
+              <span id="umiMedn" style="font-size:20px;" class="description-percentage text-red"><i class="fa fa-caret-up"></i>
+                %</span>
+              </br>
+  
+              <span class="description-text  ">Umidade Mediana</span>
+            </div>
+          </div>
+
+          <div class="col-sm-3 col-xs-6 ">
+                <div class="description-block border-right">
+                  <span class="info-box-text">Média da Umidade</span>
+                  <span id="umiMed" style="font-size:20px;" class="description-percentage text-red"><i class="fa fa-caret-up"></i>
+                    %</span>
+                  </br>
+      
+                  <span class="description-text  ">Umidade Média</span>
+                </div>
+              </div>
+
+              <div class="col-sm-3 col-xs-6 ">
+                    <div class="description-block border-right">
+                      <span class="info-box-text">1º Quartil da Umidade</span>
+                      <span id="umiQua1" style="font-size:20px;" class="description-percentage text-red"><i class="fa fa-caret-up"></i>
+                        %</span>
+                      </br>
+          
+                      <span class="description-text  ">Umidade do 1º Quartil</span>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-3 col-xs-6 ">
+                        <div class="description-block border-right">
+                          <span class="info-box-text">1º Quartil da Umidade</span>
+                          <span id="umiQua3" style="font-size:20px;" class="description-percentage text-red"><i class="fa fa-caret-up"></i>
+                            %</span>
+                          </br>
+              
+                          <span class="description-text  ">Umidade do 3º Quartil</span>
+                        </div>
+                      </div>
+
+
+      <!-- /.content -->
+
+      <!-- /.content-wrapper -->
+
+
+
+
+
+      <!-- jQuery 3 -->
+        </section>
+        </div>
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+      <script src="https://code.highcharts.com/modules/exporting.js"></script>
+      <script src="https://code.highcharts.com/modules/export-data.js"></script>
+      <script src="/socket.io/socket.io.js"></script>
+      <script src='/admin/dist/js/eventsVerificacao.js'></script>
+      <script>
+        var socket = io('http://localhost:8080');
+
+        var events = new eventsVericacao();
+
+        socket.on('pisca_green', function (tipo) {
+
+          events.startGreen(tipo);
+
+        });
+
+        socket.on('pisca_yellow', function (tipo) {
+
+          events.startYellow(tipo);
+
+
+        });
+
+
+        socket.on('pisca_red', function (tipo) {
+
+          events.startRed(tipo);
+
+
+        });
+
+
+        socket.on('stop', function (tipo) {
+
+          events.stop(tipo);
+
+        });
+      </script>
+
+      <script>
+
+
+
+
+
+
+
+        function recuperar_dados(instancia) {
+          var series = instancia.series[0];
+          var seriesz = instancia.series[1];
+          setTimeout(function () {
+            fetch('/admin/looping?id=' + idSensor.value, { method: 'POST' }).then(r => {
+              return r.json()
+
+            }).then(res => {
+
+
+              time = new Date().getTime(),
+
+
+
+
+                document.querySelector("#tem").innerHTML = res.temp + " Cº";
+              document.querySelector("#umi").innerHTML = res.umid + " %";
+
+              series.addPoint([time, res.umid], true, true);
+              seriesz.addPoint([time, res.temp], true, true);
+
+              recuperar_dados(instancia);
+
+              analysis();
+
+            })
+          }, 5000);
+        }
+
+
+
+        myHeaders = new Headers({
+          "id": "idSensor.value",
+
+        });
+
+        fetch('/admin/start?id=' + idSensor.value, { method: 'POST', headers: myHeaders }).then(r => {
+          return r.json()
+
+        }).then(rs => {
+
+          console.log(rs);
+
+          Highcharts.chart('container', {
+            chart: {
+              type: 'line',
+              events: {
+
+                load: function () {
+
+
+
+
+                  recuperar_dados(this);
+
+
+                },
+
+
+
+
+
+
+
+              }
+            },
+            time: {
+              useUTC: false
+            },
+            title: {
+              text: rs.unidade
+            },
+            subtitle: {
+              text: rs.apelido
+            },
+            xAxis: {
+              type: 'datetime',
+              tickPixelInterval: 200,
+              // categories: json.time
+            },
+            yAxis: {
+              title: {
+                text: 'Temperatura (°C)    Umidade %'
+              }
+            },
+            plotOptions: {
+              line: {
+                dataLabels: {
+                  enabled: true
+                },
+                enableMouseTracking: true
+              }
+            },
+            series: [{
+              name: 'Umidade',
+
+              data: (function () {
+                // generate an array of random data
+                var data = [],
+                  //time = (new Date()).getTime(),
+                  i;
+                var c = 9
+                for (i = -9; i <= 0; i += 1) {
+                  time = (new Date()).getTime(),
+
+                    data.push({
+                      x: time + i * 1000,
+                      y: rs.umid[c]
+                    });
+                  c--;
+                }
+                return data;
+              }())
+            }, {
+              name: 'Temperatura',
+
+              data: (function () {
+                // generate an array of random data
+                var data = [],
+                  //time = (new Date()).getTime(),i;
+                  c = 9;
+
+                for (i = -9; i <= 0; i += 1) {
+                  time = (new Date()).getTime(),
+
+
+
+                    data.push({
+                      x: time + i * 1000,
+                      y: rs.temp[c]
+                    });
+                  c--
+                }
+                return data;
+              }())
+            }
+
+            ]
+          });
+        });
+
+function analysis(){
+var sum = 0;
+for( var i = 0; i < series.length; i++ ){
+    sum += parseInt( series[i], 10 ); //don't forget to add the base
+}
+
+var avg = sum/series.length;
+
+    umiMed.innerHTML = avg.toFixed(2);
+
+    teste.sort(function(a, b) {
+      return a - b;
+    });
+
+        var mid = series / 2;
+     
+     umiMedn.innerHTML = mid % 1 ? series[mid - 0.5] : (series[mid - 1] + series[mid]) / 2;
+     
+     umiQua1.innerHTML = quantile(teste, 25);
+     
+    umiQua3.innerHTML = quantile(teste, 75);
+
+
+
+function quantile(series, percentile) {
+    index = percentile/100. * (series.length-1);
+    if (Math.floor(index) == index) {
+    	result = series[index];
+    } else {
+        i = Math.floor(index)
+        fraction = index - i;
+        result = series[i] + (series[i+1] - series[i]) * fraction;
+    }
+    return result;
+}
+
+
+}
+
+
+
+
+
+      </script>
+
+      <!-- jQuery 3 -->
+      <script src="bower_components/jquery/dist/jquery.min.js"></script>
+      <!-- Bootstrap 3.3.7 -->
+      <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+      <!-- PACE -->
+      <script src="bower_components/PACE/pace.min.js"></script>
+      <!-- SlimScroll -->
+      <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+      <!-- FastClick -->
+      <script src="bower_components/fastclick/lib/fastclick.js"></script>
+      <!-- AdminLTE App -->
+      <script src="dist/js/adminlte.min.js"></script>
+      <!-- AdminLTE for demo purposes -->
+      <script src="dist/js/demo.js"></script>
+      <!-- page script -->
+      <script type="text/javascript">
+        // To make Pace works on Ajax calls
+        $(document).ajaxStart(function () {
+          Pace.restart()
+        })
+        $('.ajax').click(function () {
+          $.ajax({
+            url: '#', success: function (result) {
+              $('.ajax-content').html('<hr>Ajax Request Completed !')
+            }
+          })
+        })
+
+
+
+      </script>
+
+
+
+
+
+
+
+</html>
