@@ -13,14 +13,8 @@
   </section>
 
   <!-- Main content -->
-  <h2>Analytics
-    <select id="analy" style="font-size: 15pt">
-      <option value="0" onclick="temp()">Temperatura</option>
-      <option value="1" onclick="umid()">Umidade</option>
-    </select>
-  </h2>
 
-  <div class="col-md-3 col-sm-6 col-xs-12" style="display: block" id="tempA">
+  <div class="col-md-3 col-sm-6 col-xs-12">
     <div class="info-box">
       <span class="info-box-icon bg-orange"><i class="fa fa-fw  ion-thermometer"></i></span>
 
@@ -38,7 +32,7 @@
 
   <!--2 campo -->
 
-  <div class="col-md-3 col-sm-6 col-xs-12" style="display: none" id="umidA">
+  <div class="col-md-3 col-sm-6 col-xs-12" style="margin-left: -14px">
     <div class="info-box">
       <span class="info-box-icon bg-blue"><i class="fa fa-fw ion-cloud"></i></span>
 
@@ -56,101 +50,57 @@
     </div>
   </div>
   <!-- /.info-box -->
+  <div class="box-footer" style=" width: 515px; max-height:90px; margin-left:545px;">
 
-  <div class="col-md-3 col-sm-6 col-xs-12" style="display: block" id="tem1">
-    <div class="info-box">
-      <span class="info-box-icon bg-orange"><i class="fa fa-fw  ion-thermometer"></i></span>
+    <img src="/admin/dist/img/barra.png" style="max-height: 60px; margin-left: -375px; margin-top: 4px;">
 
-      <div class="info-box-content">
-        <span class="info-box-text">Média</span>
-        <span id="tem" class="info-box-number"><small> Cº</small></span>
+    <div class="col-sm-3 col-xs-6">
+      <div class="description-block border-right">
+        <span style="font-size:20px;" class="description-percentage text-green "><i class="fa fa-caret-down"></i> 17
+          Cº</span>
+        </br>
 
+        <span class="description-text">Temp Min.</span>
       </div>
-      <!-- /.info-box-content -->
-    </div>
-    <!-- /.info-box -->
-  </div>
 
-<div class="col-md-3 col-sm-6 col-xs-12" style="display: block" id="tem11">
-    <div class="info-box">
-      <span class="info-box-icon bg-orange"><i class="fa fa-fw  ion-thermometer"></i></span>
-
-      <div class="info-box-content">
-        <span id="textTemp" style="font-size: 15px">Mediana</span>
-        <span id="tem" class="info-box-number"><small> Cº</small></span>
-
-      </div>
-      <!-- /.info-box-content -->
-    </div>
-    <!-- /.info-box -->
-  </div>
-
-
-
-    <div class="col-md-3 col-sm-6 col-xs-12" style="display: block" id="tem2">
-      <div class="info-box">
-        <span class="info-box-icon bg-orange"><i class="fa fa-fw  ion-thermometer"></i></span>
-  
-        <div class="info-box-content">
-          <span class="info-box-text">1º Quartil</span>
-          <span id="tem" class="info-box-number"><small> Cº</small></span>
-          <span id="textTemp" style="font-size: 15px">3º Quartil</span>
-          <span id="tem" class="info-box-number"><small> Cº</small></span>
-  
-        </div>
-        <!-- /.info-box-content -->
-      </div>
-      <!-- /.info-box -->
+      <!-- /.description-block -->
     </div>
 
 
-    <div class="col-md-3 col-sm-6 col-xs-12" style="display: none" id="umi1">
-      <div class="info-box">
-        <span class="info-box-icon bg-blue"><i class="fa fa-fw ion-cloud"></i></span>
-  
-        <div class="info-box-content">
-          <span class="info-box-text">Média</span>
-          <span id="umi" class="info-box-number"><small>%</small></span>
-  
-        </div>
-  
-        <!--Inicio dos novos campos-->
-  
-        <!-- /.info-box-content -->
+    <img src="/admin/dist/img/barra.png" style="max-height: 60px; margin-left: 120px; margin-top: 4px;">
+
+
+
+    <div class="col-sm-3 col-xs-6 ">
+      <div class="description-block border-right">
+        <span style="font-size:20px;" class="description-percentage text-red"><i class="fa fa-caret-up"></i> 26
+          Cº</span>
+        </br>
+
+        <span class="description-text  ">Temp Max.</span>
       </div>
     </div>
 
-    <div class="col-md-3 col-sm-6 col-xs-12" style="display: none" id="umi11">
-      <div class="info-box">
-        <span class="info-box-icon bg-blue"><i class="fa fa-fw ion-cloud"></i></span>
-  
-        <div class="info-box-content">
-          <span id="textUmid" style="font-size: 15px">Mediana</span>
-          <span id="umi" class="info-box-number"><small>%</small></span>
-  
-        </div>
-  
-        <!--Inicio dos novos campos-->
-  
-        <!-- /.info-box-content -->
+    <img src="/admin/dist/img/barra.png" style="max-height: 60px; margin-left: 115px; margin-top: 4px;">
+
+
+    <div class="col-sm-3 col-xs-6 ">
+      <div class="description-block border-right">
+        <span style="font-size:20px;" class="description-percentage text-green"><i class="fa fa-caret-down"></i>
+          65.5 %</span>
+        </br>
+
+        <span class="description-text  ">Umid Min.</span>
       </div>
     </div>
 
-    <div class="col-md-3 col-sm-6 col-xs-12" style="display: none" id="umi2">
-      <div class="info-box">
-        <span class="info-box-icon bg-blue"><i class="fa fa-fw ion-cloud"></i></span>
-  
-        <div class="info-box-content">
-          <span class="info-box-text">1º Quartil</span>
-          <span id="umi" class="info-box-number"><small>%</small></span>
-          <span id="textUmid" style="font-size: 15px">3º Quartil</span>
-          <span id="umi" class="info-box-number"><small>%</small></span>
-  
-        </div>
-  
-        <!--Inicio dos novos campos-->
-  
-        <!-- /.info-box-content -->
+    <div class="col-sm-3 col-xs-6 ">
+      <div class="description-block border-right">
+        <span style="font-size:20px;" class="description-percentage text-red"><i class="fa fa-caret-up"></i> 90.5
+          %</span>
+        </br>
+
+        <span class="description-text  ">Umid Max.</span>
       </div>
     </div>
 
@@ -200,133 +150,53 @@
   <script src='/admin/dist/js/eventsVerificacao.js'></script>
   <script>
     //  var socket = io('https://nexustech.azurewebsites.net');
-
     var socket = io('localhost:8080');
-
     var events = new eventsVericacao();
-
     socket.on('pisca_green', function (tipo) {
-
       events.startGreen(tipo);
-
     });
-
     socket.on('pisca_yellow', function (tipo) {
-
       events.startYellow(tipo);
-
-
     });
-
-
     socket.on('pisca_red', function (tipo) {
-
       events.startRed(tipo);
-
-
     });
-
-
     socket.on('stop', function (tipo) {
-
       events.stop(tipo);
-
     });
   </script>
 
   <script>
-
-
-function umid(){
-  tem1.style.display='none';
-  tem11.style.display='none';
-  tem2.style.display='none';
-  tempA.style.display='none';
-  umi1.style.display='block';
-  umi11.style.display='block';
-  umi2.style.display='block';
-  umidA.style.display='block';
-}
-
-function temp(){
-  tem1.style.display='block';
-  tem11.style.display='block';
-  tem2.style.display='block';
-  tempA.style.display='block';
-  umi1.style.display='none';
-  umi11.style.display='none';
-  umi2.style.display='none';
-  umidA.style.display='none';
-}
-
-
     function recuperar_dados(instancia) {
       var series = instancia.series[0];
       var seriesz = instancia.series[1];
       setTimeout(function () {
         fetch('/admin/looping?id=' + idSensor.value, { method: 'POST' }).then(r => {
           return r.json()
-
         }).then(res => {
-
-
           time = new Date().getTime(),
-
-
-
-
             document.querySelector("#tem").innerHTML = res.temp + " Cº";
           document.querySelector("#umi").innerHTML = res.umid + " %";
-
           series.addPoint([time, res.umid], true, true);
           seriesz.addPoint([time, res.temp], true, true);
-
           recuperar_dados(instancia);
-
-
-
         })
       }, 5000);
     }
-
-
-
-
-
-
     myHeaders = new Headers({
       "id": "idSensor.value",
-
     });
-
     fetch('/admin/start?id=' + idSensor.value, { method: 'POST', headers: myHeaders }).then(r => {
       return r.json()
-
     }).then(rs => {
-
       console.log(rs);
-
       Highcharts.chart('container', {
         chart: {
           type: 'line',
           events: {
-
             load: function () {
-
-
-
-
               recuperar_dados(this);
-
-
             },
-
-
-
-
-
-
-
           }
         },
         time: {
@@ -358,7 +228,6 @@ function temp(){
         },
         series: [{
           name: 'Umidade',
-
           data: (function () {
             // generate an array of random data
             var data = [],
@@ -367,7 +236,6 @@ function temp(){
             var c = 9
             for (i = -9; i <= 0; i += 1) {
               time = (new Date()).getTime(),
-
                 data.push({
                   x: time + i * 1000,
                   y: rs.umid[c]
@@ -378,18 +246,13 @@ function temp(){
           }())
         }, {
           name: 'Temperatura',
-
           data: (function () {
             // generate an array of random data
             var data = [],
               //time = (new Date()).getTime(),i;
               c = 9;
-
             for (i = -9; i <= 0; i += 1) {
               time = (new Date()).getTime(),
-
-
-
                 data.push({
                   x: time + i * 1000,
                   y: rs.temp[c]
@@ -399,21 +262,9 @@ function temp(){
             return data;
           }())
         }
-
         ]
       });
     });
-
-
-
-
-
-
-
-
-
-
-
   </script>
 
   <!-- jQuery 3 -->
@@ -443,9 +294,6 @@ function temp(){
         }
       })
     })
-
-
-
   </script>
 
 
