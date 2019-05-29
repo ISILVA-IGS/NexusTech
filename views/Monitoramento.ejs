@@ -20,7 +20,7 @@
 
       <div class="info-box-content">
         <span class="info-box-text">Temp. Atual</span>
-        <span id="tem" class="info-box-number"><small> Cº</small></span>
+        <span id="tem" class="info-box-number"><small> Cº</small><small> 6-4 </small></span>
         <span id="textTemp" style="font-size: 15px">Sit. Normal</span>
         <img id="imgTemp" src="/admin/dist/img/c_green.jpg" style="max-width:17px; margin-bottom: 2px">
 
@@ -149,8 +149,8 @@
   <script src="/socket.io/socket.io.js"></script>
   <script src='/admin/dist/js/eventsVerificacao.js'></script>
   <script>
-    //  var socket = io('https://nexustech.azurewebsites.net');
-    var socket = io('localhost:8080');
+    var socket = io('https://nexustech.azurewebsites.net');
+    //var socket = io('localhost:8080');
     var events = new eventsVericacao();
     socket.on('pisca_green', function (tipo) {
       events.startGreen(tipo);
