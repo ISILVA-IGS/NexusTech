@@ -200,7 +200,7 @@
     fetch('/admin/start?id=' + idSensor.value, { method: 'POST', headers: myHeaders }).then(r => {
       return r.json()
     }).then(rs => {
-      document.getElementById("loading").style.display = "none";
+      loading.style.display = "none";
       console.log(rs);
       Highcharts.chart('container', {
         chart: {
