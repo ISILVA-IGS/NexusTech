@@ -115,15 +115,7 @@
     <!--Final dos novos campos-->
   </div>
 
-  var i = setInterval(function () {
-    
-    clearInterval(i);
   
-    // O código desejado é apenas isto:
-    document.getElementById("loading").style.display = "none";
-    document.getElementById("tabela").style.display = "inline";
-
-}, 4000);
 <div id="loading" style="display: block">
     <img src="http://media.giphy.com/media/FwviSlrsfa4aA/giphy.gif" style="width:150px;height:150px;" />
 </div>
@@ -165,6 +157,17 @@
   <script src="https://code.highcharts.com/modules/export-data.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src='/admin/dist/js/eventsVerificacao.js'></script>
+  <script>
+  var i = setInterval(function () {
+    
+    clearInterval(i);
+  
+    // O código desejado é apenas isto:
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("tabela").style.display = "inline";
+
+}, 4000);
+  </script>
   <script>
     var socket = io('https://nexustech.azurewebsites.net');
     //var socket = io('localhost:8080');
