@@ -115,9 +115,15 @@
     <!--Final dos novos campos-->
   </div>
 
+  
+<div id="loading" style="display: block">
+    <img src="http://media.giphy.com/media/FwviSlrsfa4aA/giphy.gif" style="width:150px;height:150px;" />
+</div>
+
+<!-- COLOQUE A DIV "loading" ACIMA DE TODO O CONTEUDO DO SITE (ABAIXO DA <body>) -->
 
 
-  <div class="col-md-12">
+  <div class="col-md-12" id="tabela" style="display: block">
     <div id="container" style="min-width: 210px;max-width: 1085px; height: 485px ; ">
     </div>
   </div>
@@ -151,8 +157,14 @@
   <script src="https://code.highcharts.com/modules/export-data.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src='/admin/dist/js/eventsVerificacao.js'></script>
+  
   <script>
+<<<<<<< HEAD
    var socket = io('https://nexustech.azurewebsites.net');
+=======
+
+    var socket = io('https://nexustech.azurewebsites.net');
+>>>>>>> 3090632f088b5e352a9a86ff1909e4ce20aaa812
     //var socket = io('localhost:8080');
     var events = new eventsVericacao();
     socket.on('pisca_green', function (tipo) {
@@ -192,6 +204,7 @@
     fetch('/admin/start?id=' + idSensor.value, { method: 'POST', headers: myHeaders }).then(r => {
       return r.json()
     }).then(rs => {
+      document.getElementById("loading").style.display = "none";
       console.log(rs);
       Highcharts.chart('container', {
         chart: {
