@@ -115,9 +115,23 @@
     <!--Final dos novos campos-->
   </div>
 
+  var i = setInterval(function () {
+    
+    clearInterval(i);
+  
+    // O código desejado é apenas isto:
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("tabela").style.display = "inline";
+
+}, 4000);
+<div id="loading" style="display: block">
+    <img src="http://media.giphy.com/media/FwviSlrsfa4aA/giphy.gif" style="width:150px;height:150px;" />
+</div>
+
+<!-- COLOQUE A DIV "loading" ACIMA DE TODO O CONTEUDO DO SITE (ABAIXO DA <body>) -->
 
 
-  <div class="col-md-12">
+  <div class="col-md-12" id="tabela" style="display: none">
     <div id="container" style="min-width: 210px;max-width: 1085px; height: 485px ; ">
     </div>
   </div>
