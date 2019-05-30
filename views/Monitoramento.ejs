@@ -6,7 +6,7 @@
 
 
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+<div style="margin-left: 250px" class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
    
@@ -19,8 +19,8 @@
       <span class="info-box-icon bg-orange"><i class="fa fa-fw  ion-thermometer"></i></span>
 
       <div class="info-box-content">
-        <span class="info-box-text">Temp. Atual</span>
-        <span id="tem" class="info-box-number"><small> Cº</small><small> 6-4 </small></span>
+        <span class="info-box-text">Temp. Atual </span>
+        <span  class="info-box-number"><span id="tem"></span> </span>
         <span id="textTemp" style="font-size: 15px">Sit. Normal</span>
         <img id="imgTemp" src="/admin/dist/img/c_green.jpg" style="max-width:17px; margin-bottom: 2px">
 
@@ -32,7 +32,7 @@
 
   <!--2 campo -->
 
-  <div class="col-md-3 col-sm-6 col-xs-12" style="margin-left: -14px">
+  <div class="col-md-3 col-sm-6 col-xs-12" style="margin-left: 4px">
     <div class="info-box">
       <span class="info-box-icon bg-blue"><i class="fa fa-fw ion-cloud"></i></span>
 
@@ -49,8 +49,11 @@
       <!-- /.info-box-content -->
     </div>
   </div>
+
+
+
   <!-- /.info-box -->
-  <div class="box-footer" style=" width: 515px; max-height:90px; margin-left:545px;">
+  <div class="box-footer" style=" width: 515px; max-height:90px; margin-left:585px; ">
 
     <img src="/admin/dist/img/barra.png" style="max-height: 60px; margin-left: -375px; margin-top: 4px;">
 
@@ -115,7 +118,7 @@
 
 
   <div class="col-md-12">
-    <div id="container" style="min-width: 210px;max-width: 1047px; height: 385px ; ">
+    <div id="container" style="min-width: 210px;max-width: 1085px; height: 485px ; ">
     </div>
   </div>
 
@@ -149,8 +152,8 @@
   <script src="/socket.io/socket.io.js"></script>
   <script src='/admin/dist/js/eventsVerificacao.js'></script>
   <script>
-    var socket = io('https://nexustech.azurewebsites.net');
-    //var socket = io('localhost:8080');
+    //var socket = io('https://nexustech.azurewebsites.net');
+    var socket = io('localhost:8080');
     var events = new eventsVericacao();
     socket.on('pisca_green', function (tipo) {
       events.startGreen(tipo);
@@ -181,7 +184,7 @@
           seriesz.addPoint([time, res.temp], true, true);
           recuperar_dados(instancia);
         })
-      }, 5000);
+      }, 2000);
     }
     myHeaders = new Headers({
       "id": "idSensor.value",
@@ -203,10 +206,10 @@
           useUTC: false
         },
         title: {
-          text: rs.unidade
+          text: rs.apelido 
         },
         subtitle: {
-          text: rs.apelido
+          text: 'Temperatura 4-6 Cº Umidade 45-55 %'
         },
         xAxis: {
           type: 'datetime',
