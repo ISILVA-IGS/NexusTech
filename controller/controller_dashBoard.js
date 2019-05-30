@@ -30,19 +30,18 @@ class Controller_dashBoard{
             
         }
 
-        this.filtroAlerta(id).then(alertas=>{
+        
 
 
           
-          var json={temp,umid,apelido:rs.recordset[0].apelido,unidade:rs.recordset[0].unidade,tr:alertas.tr,ur:alertas.ur};
-          global.alerta=alertas;
+          var json={temp,umid,apelido:rs.recordset[0].apelido,unidade:rs.recordset[0].unidade};
+          
           resolve(json)
         })
         
         
         
-      })
-    });
+      });
      
   }
 
@@ -95,7 +94,7 @@ class Controller_dashBoard{
                     }
                 }
             });
-
+            global.alertas = json;
             resolve(json);
 
 

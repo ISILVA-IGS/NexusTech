@@ -152,8 +152,8 @@
   <script src="/socket.io/socket.io.js"></script>
   <script src='/admin/dist/js/eventsVerificacao.js'></script>
   <script>
-    var socket = io('https://nexustech.azurewebsites.net');
-    //var socket = io('localhost:8080');
+   // var socket = io('https://nexustech.azurewebsites.net');
+    var socket = io('localhost:8080');
     var events = new eventsVericacao();
     socket.on('pisca_green', function (tipo) {
       events.startGreen(tipo);
@@ -209,7 +209,7 @@
           text: rs.apelido 
         },
         subtitle: {
-          text: `Temperatura ${rs.tr.min}-${rs.tr.max} Cº Umidade ${rs.ur.min}-${rs.ur.max} % Recomendadas`
+          text: `Temperatura ${rs.alertas.tr.min}-${rs.alertas.tr.max} Cº Umidade ${rs.alertas.ur.min}-${rs.alertas.ur.max} % Recomendadas`
         },
         xAxis: {
           type: 'datetime',
@@ -241,7 +241,7 @@
               time = (new Date()).getTime(),
                 data.push({
                   x: time + i * 1000,
-                  y: rs.umid[c]
+                  y: rs.selects.umid[c]
                 });
               c--;
             }
@@ -258,7 +258,7 @@
               time = (new Date()).getTime(),
                 data.push({
                   x: time + i * 1000,
-                  y: rs.temp[c]
+                  y: rs.selects.temp[c]
                 });
               c--
             }

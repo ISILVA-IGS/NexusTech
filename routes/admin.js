@@ -119,10 +119,12 @@ router.post('/looping/', function(req, res, next) {
  
 });
 
-router.post('/start/', function(req, res, next) {
- 
-  C_dashBoard.selectToplast10(req.query.id).then(json=>{ res.send(json)})
- 
+router.post('/start/', async function  (req, res, next) {
+  var json = {selects:"",alertas:"",analytics:""}
+  json.selects = await C_dashBoard.selectToplast10(req.query.id);
+  json.alertas = await C_dashBoard.filtroAlerta(req.query.id);
+  console.log(json);
+  res.send(json)
 });
 
 

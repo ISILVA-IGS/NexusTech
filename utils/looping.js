@@ -33,7 +33,7 @@ class controllerLopping {
                 let pquart = rs.recordset[0].pquart;
                 let tquart = rs.recordset[0].tquart;
                 
-                var al = global.alerta 
+                var al = global.alertas
 
                 this.alertaTemp.comparar(temp, al.ta.min, al.ta.max,al.te.min, al.te.max);
                 this.alertaUmid.comparar(umid, al.ua.min, al.ua.max,al.ue.min, al.ue.max);
