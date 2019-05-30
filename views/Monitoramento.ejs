@@ -152,8 +152,8 @@
   <script src="/socket.io/socket.io.js"></script>
   <script src='/admin/dist/js/eventsVerificacao.js'></script>
   <script>
-   // var socket = io('https://nexustech.azurewebsites.net');
-    var socket = io('localhost:8080');
+   var socket = io('https://nexustech.azurewebsites.net');
+    //var socket = io('localhost:8080');
     var events = new eventsVericacao();
     socket.on('pisca_green', function (tipo) {
       events.startGreen(tipo);
