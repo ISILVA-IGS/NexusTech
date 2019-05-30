@@ -31,7 +31,10 @@ class Controller_dashBoard{
         }
 
         this.filtroAlerta(id).then(alertas=>{
-          var json={temp,umid,apelido:rs.recordset[0].apelido,unidade:rs.recordset[0].unidade};
+
+
+          
+          var json={temp,umid,apelido:rs.recordset[0].apelido,unidade:rs.recordset[0].unidade,tr:alertas.tr,ur:alertas.ur};
           global.alerta=alertas;
           resolve(json)
         })
@@ -48,7 +51,7 @@ class Controller_dashBoard{
   selectSensores(cpf){
     return new Promise((resolve,reject)=>{
         console.log(cpf);
-      rUser.selectSensores(cpf).then(rs=>{console.log('voltoouuuu');resolve(rs)})
+      rUser.selectSensores(cpf).then(rs=>{resolve(rs)})
 
 
 
@@ -82,12 +85,12 @@ class Controller_dashBoard{
                         json.ur.max = rs.max;
                     }
                     else if (rs.Tipo_Alerta == 'A') {
-                        json.ar.min = rs.min;
-                        json.ar.max = rs.max;
+                        json.ua.min = rs.min;
+                        json.ua.max = rs.max;
                     }
                     else if (rs.Tipo_Alerta == 'E') {
-                        json.er.min = rs.min;
-                        json.er.max = rs.max;
+                        json.ue.min = rs.min;
+                        json.ue.max = rs.max;
 
                     }
                 }

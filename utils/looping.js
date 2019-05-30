@@ -33,12 +33,12 @@ class controllerLopping {
                 let pquart = rs.recordset[0].pquart;
                 let tquart = rs.recordset[0].tquart;
                 
-                console.log(global.alerta);
+                var al = global.alerta 
 
-                this.alertaTemp.comparar(temp, 3.5, 6.5, 2.5, 7.5);
-                this.alertaUmid.comparar(umid, 50, 60, 45, 65);
+                this.alertaTemp.comparar(temp, al.ta.min, al.ta.max,al.te.min, al.te.max);
+                this.alertaUmid.comparar(umid, al.ua.min, al.ua.max,al.ue.min, al.ue.max);
 
-                var json = { time, temp, umid,media,mediana,pquart,tquart };
+                var json = { time, temp, umid};
                 console.log(json);
                 resolve(json);
 
