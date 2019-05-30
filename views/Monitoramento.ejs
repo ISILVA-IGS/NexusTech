@@ -123,7 +123,7 @@
 <!-- COLOQUE A DIV "loading" ACIMA DE TODO O CONTEUDO DO SITE (ABAIXO DA <body>) -->
 
 
-  <div class="col-md-12" id="tabela" style="display: none">
+  <div class="col-md-12" id="tabela" style="display: block">
     <div id="container" style="min-width: 210px;max-width: 1085px; height: 485px ; ">
     </div>
   </div>
@@ -159,16 +159,6 @@
   <script src='/admin/dist/js/eventsVerificacao.js'></script>
   
   <script>
-    
-  var i = setInterval(function () {
-    
-    clearInterval(i);
-  
-    // O código desejado é apenas isto:
-    document.getElementById("loading").style.display = "none";
-    document.getElementById("tabela").style.display = "inline";
-
-}, 4000);
 
     var socket = io('https://nexustech.azurewebsites.net');
     //var socket = io('localhost:8080');
@@ -210,6 +200,7 @@
     fetch('/admin/start?id=' + idSensor.value, { method: 'POST', headers: myHeaders }).then(r => {
       return r.json()
     }).then(rs => {
+      document.getElementById("loading").style.display = "none";
       console.log(rs);
       Highcharts.chart('container', {
         chart: {
