@@ -59,11 +59,10 @@
 
   <div class="col-sm-3 col-xs-6">
     <div class="description-block border-right">
-      <span style="font-size:20px;" class="description-percentage text-orange "> 17
-        Cº</span>
+      <span id="min" style="font-size:20px;" class="description-percentage text-black "></span>
       </br>
 
-      <span class="description-text">Média</span>
+      <span class="description-text">Mínimo</span>
     </div>
 
     <!-- /.description-block -->
@@ -76,8 +75,7 @@
 
   <div class="col-sm-3 col-xs-6 ">
     <div class="description-block border-right">
-      <span style="font-size:20px;" class="description-percentage text-orange"> 26
-        Cº</span>
+      <span id="mediana" style="font-size:20px;" class="description-percentage text-black"></span>
       </br>
 
       <span class="description-text  ">Mediana</span>
@@ -89,21 +87,19 @@
 
   <div class="col-sm-3 col-xs-6 ">
     <div class="description-block border-right">
-      <span style="font-size:20px;" class="description-percentage text-orange">
-        65.5 %</span>
+      <span id="pquart" style="font-size:20px;" class="description-percentage text-black"></span>
       </br>
 
-      <span class="description-text  ">Primeiro Quartil</span>
+      <span class="description-text  ">Pri.Quartil</span>
     </div>
   </div>
 
   <div class="col-sm-3 col-xs-6 ">
     <div class="description-block border-right">
-      <span style="font-size:20px;" class="description-percentage text-orange"> 90.5
-        %</span>
+      <span id="tquart" style="font-size:20px;" class="description-percentage text-black"></span>
       </br>
 
-      <span class="description-text  ">Terceiro Quartil</span>
+      <span class="description-text  ">Ter.Quartil</span>
     </div>
   </div>
   </div>
@@ -203,7 +199,14 @@
     fetch('/admin/start?id=' + idSensor.value, { method: 'POST', headers: myHeaders }).then(r => {
       return r.json()
     }).then(rs => {
+      console.log(rs.analytics.minimo);
+
       loading.style.display = "none";
+       min.innerHTML=rs.analytics.minimo;
+       mediana.innerHTML=rs.analytics.mediana;
+      pquart.innerHTML=rs.analytics.primeiroQuartil;
+      tquart.innerHTML=rs.analytics.terceiroQuartil;
+
       row.style.display='block';
       console.log(rs);
       Highcharts.chart('container', {

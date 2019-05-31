@@ -63,17 +63,24 @@ module.exports={
 
     },
 
-    async selectAnalytcs(id) {
-
+    async selectAnalytcs(id,date) {
+        
         const sql = await mssql.connect()
         return new Promise((resolve,reject)=>{
-            sql.query(`select a.* from alerta as a inner join sensor on fk_sensor = idsensor  where idsensor = ${id}`
+            sql.query(`SELECT DISTINCT 
+
+            MIN(CAST([Temperatura_Atual] AS FLOAT)) 
+            OVER(PARTITION BY 1) AS [minimo],
+            PERCENTILE_CONT(0.25) WITHIN GROUP(ORDER BY CAST([Temperatura_Atual] AS FLOAT)) OVER(PARTITION BY 1) AS [primeiroQuartil],
+            PERCENTILE_CONT(0.5) WITHIN GROUP(ORDER BY CAST([Temperatura_Atual] AS FLOAT)) OVER(PARTITION BY 1) AS [mediana],
+            PERCENTILE_CONT(0.75) WITHIN GROUP(ORDER BY CAST([Temperatura_Atual] AS FLOAT)) OVER(PARTITION BY 1) AS [terceiroQuartil],
+            MAX(CAST([Temperatura_Atual] AS FLOAT)) OVER(PARTITION BY 1) AS [maximo] FROM Monitoramento WHERE fk_Sensor = ${id} and data_mon >=${date}`
              ,(err,result)=>{
                 
                 if(err){
                     console.log(err)
                 }else{
-                    resolve(result.recordset);
+                    resolve(result.recordset[0]);
                 }
     
     
