@@ -14,7 +14,7 @@
 
   <!-- Main content -->
 <div id="row" style="display: none">
-  <div class="col-md-3 col-sm-6 col-xs-12">
+  <div id="row1" style="display: none" class="col-md-3 col-sm-6 col-xs-12">
   <div class="info-box">
     <span class="info-box-icon bg-orange"><i class="fa fa-fw  ion-thermometer"></i></span>
 
@@ -32,7 +32,7 @@
 
 <!--2 campo -->
 
-<div class="col-md-3 col-sm-6 col-xs-12" style="margin-left: 4px">
+<div id="row2" style="display: none" class="col-md-3 col-sm-6 col-xs-12" style="margin-left: 4px">
   <div class="info-box">
     <span class="info-box-icon bg-blue"><i class="fa fa-fw ion-cloud"></i></span>
 
@@ -215,6 +215,11 @@
           events: {
             load: function () {
               recuperar_dados(this);
+              setTimeout(()=>{
+                row1.style.display='block';
+                row2.style.display='block';
+
+              },1500)
             },
           }
         },
