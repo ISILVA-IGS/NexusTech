@@ -33,9 +33,9 @@
           <%if(sensores.length > 0) { %>
 
           <ul class="treeview-menu">
-            <img src="assets/img/geladeira.svg" style="height: 20px;width: 20px">
+            
             <% sensores.forEach((sensor)=>{ %>
-            <li class="active"><a href="/admin/monitoramento?id=<%=sensor.idSensor%>"><%=sensor.apelido%></a></li>
+            <li class="active"><a href="/admin/monitoramento?id=<%=sensor.idSensor%>"><img src="assets/img/geladeira.svg" style="height: 20px;width: 20px"><%=sensor.apelido%></a></li>
 
             <% }) %>
           </ul>
@@ -49,7 +49,7 @@
 
          
           <a href="/admin/user">
-            <i class="fa fa-circle"></i>
+            <img src="assets/img/do-utilizador" style="height: 20px;width: 20px">
             <span>Usuarios</span>
           </a>
         </li>
