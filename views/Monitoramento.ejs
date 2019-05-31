@@ -14,14 +14,14 @@
 
   <!-- Main content -->
 <div id="row" style="display: none">
-  <div id="row1" style="display: none" class="col-md-3 col-sm-6 col-xs-12">
+  <div class="col-md-3 col-sm-6 col-xs-12">
   <div class="info-box">
     <span class="info-box-icon bg-orange"><i class="fa fa-fw  ion-thermometer"></i></span>
 
     <div class="info-box-content">
       <span class="info-box-text">Temp. Atual </span>
       <span  class="info-box-number"><span id="tem"></span> </span>
-      <span id="textTemp" style="font-size: 15px"></span>
+      <span id="textTemp" style="font-size: 15px">Sit. Normal</span>
       <img id="imgTemp" src="/admin/dist/img/c_green.jpg" style="max-width:17px; margin-bottom: 2px">
 
     </div>
@@ -32,14 +32,14 @@
 
 <!--2 campo -->
 
-<div id="row2" style="display: none" class="col-md-3 col-sm-6 col-xs-12" style="margin-left: 4px">
+<div class="col-md-3 col-sm-6 col-xs-12" style="margin-left: 4px">
   <div class="info-box">
     <span class="info-box-icon bg-blue"><i class="fa fa-fw ion-cloud"></i></span>
 
     <div class="info-box-content">
       <span class="info-box-text">Umidade Atual</span>
-      <span id="umi" class="info-box-number"></span>
-      <span id="textUmid" style="font-size: 15px"></span>
+      <span id="umi" class="info-box-number"><small>%</small></span>
+      <span id="textUmid" style="font-size: 15px">Sit. Normal</span>
       <img id="imgUmid" src="/admin/dist/img/c_green.jpg" style="max-width:17px; margin-bottom: 2px">
 
     </div>
@@ -215,11 +215,7 @@
           events: {
             load: function () {
               recuperar_dados(this);
-              setTimeout(()=>{
-                row1.style.display='block';
-                row2.style.display='block';
-
-              },1500)
+            
             },
           }
         },
