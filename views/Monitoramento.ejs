@@ -13,111 +13,113 @@
   </section>
 
   <!-- Main content -->
-
+<div id="row" style="display: none">
   <div class="col-md-3 col-sm-6 col-xs-12">
-    <div class="info-box">
-      <span class="info-box-icon bg-orange"><i class="fa fa-fw  ion-thermometer"></i></span>
+  <div class="info-box">
+    <span class="info-box-icon bg-orange"><i class="fa fa-fw  ion-thermometer"></i></span>
 
-      <div class="info-box-content">
-        <span class="info-box-text">Temp. Atual </span>
-        <span  class="info-box-number"><span id="tem"></span> </span>
-        <span id="textTemp" style="font-size: 15px">Sit. Normal</span>
-        <img id="imgTemp" src="/admin/dist/img/c_green.jpg" style="max-width:17px; margin-bottom: 2px">
+    <div class="info-box-content">
+      <span class="info-box-text">Temp. Atual </span>
+      <span  class="info-box-number"><span id="tem"></span> </span>
+      <span id="textTemp" style="font-size: 15px">Sit. Normal</span>
+      <img id="imgTemp" src="/admin/dist/img/c_green.jpg" style="max-width:17px; margin-bottom: 2px">
 
-      </div>
-      <!-- /.info-box-content -->
     </div>
-    <!-- /.info-box -->
+    <!-- /.info-box-content -->
   </div>
-
-  <!--2 campo -->
-
-  <div class="col-md-3 col-sm-6 col-xs-12" style="margin-left: 4px">
-    <div class="info-box">
-      <span class="info-box-icon bg-blue"><i class="fa fa-fw ion-cloud"></i></span>
-
-      <div class="info-box-content">
-        <span class="info-box-text">Umidade Atual</span>
-        <span id="umi" class="info-box-number"><small>%</small></span>
-        <span id="textUmid" style="font-size: 15px">Sit. Normal</span>
-        <img id="imgUmid" src="/admin/dist/img/c_green.jpg" style="max-width:17px; margin-bottom: 2px">
-
-      </div>
-
-      <!--Inicio dos novos campos-->
-
-      <!-- /.info-box-content -->
-    </div>
-  </div>
-
-
-
   <!-- /.info-box -->
-  <div class="box-footer" style=" width: 515px; max-height:90px; margin-left:585px; ">
+</div>
 
-    <img src="/admin/dist/img/barra.png" style="max-height: 60px; margin-left: -375px; margin-top: 4px;">
+<!--2 campo -->
 
-    <div class="col-sm-3 col-xs-6">
-      <div class="description-block border-right">
-        <span style="font-size:20px;" class="description-percentage text-orange "> 17
-          Cº</span>
-        </br>
+<div class="col-md-3 col-sm-6 col-xs-12" style="margin-left: 4px">
+  <div class="info-box">
+    <span class="info-box-icon bg-blue"><i class="fa fa-fw ion-cloud"></i></span>
 
-        <span class="description-text">Média</span>
-      </div>
+    <div class="info-box-content">
+      <span class="info-box-text">Umidade Atual</span>
+      <span id="umi" class="info-box-number"><small>%</small></span>
+      <span id="textUmid" style="font-size: 15px">Sit. Normal</span>
+      <img id="imgUmid" src="/admin/dist/img/c_green.jpg" style="max-width:17px; margin-bottom: 2px">
 
-      <!-- /.description-block -->
     </div>
 
+    <!--Inicio dos novos campos-->
 
-    <img src="/admin/dist/img/barra.png" style="max-height: 60px; margin-left: 120px; margin-top: 4px;">
-
-
-
-    <div class="col-sm-3 col-xs-6 ">
-      <div class="description-block border-right">
-        <span style="font-size:20px;" class="description-percentage text-orange"> 26
-          Cº</span>
-        </br>
-
-        <span class="description-text  ">Mediana</span>
-      </div>
-    </div>
-
-    <img src="/admin/dist/img/barra.png" style="max-height: 60px; margin-left: 115px; margin-top: 4px;">
-
-
-    <div class="col-sm-3 col-xs-6 ">
-      <div class="description-block border-right">
-        <span style="font-size:20px;" class="description-percentage text-orange">
-          65.5 %</span>
-        </br>
-
-        <span class="description-text  ">Primeiro Quartil</span>
-      </div>
-    </div>
-
-    <div class="col-sm-3 col-xs-6 ">
-      <div class="description-block border-right">
-        <span style="font-size:20px;" class="description-percentage text-orange"> 90.5
-          %</span>
-        </br>
-
-        <span class="description-text  ">Terceiro Quartil</span>
-      </div>
-    </div>
-
-
-
-    <input id="idSensor" value="<%=id%>" type="hidden">
-
-
-    <!--Final dos novos campos-->
+    <!-- /.info-box-content -->
   </div>
+</div>
+
+
+
+<!-- /.info-box -->
+<div class="box-footer" style=" width: 515px; max-height:90px; margin-left:585px; ">
+
+  <img src="/admin/dist/img/barra.png" style="max-height: 60px; margin-left: -375px; margin-top: 4px;">
+
+  <div class="col-sm-3 col-xs-6">
+    <div class="description-block border-right">
+      <span style="font-size:20px;" class="description-percentage text-orange "> 17
+        Cº</span>
+      </br>
+
+      <span class="description-text">Média</span>
+    </div>
+
+    <!-- /.description-block -->
+  </div>
+
+
+  <img src="/admin/dist/img/barra.png" style="max-height: 60px; margin-left: 120px; margin-top: 4px;">
+
+
+
+  <div class="col-sm-3 col-xs-6 ">
+    <div class="description-block border-right">
+      <span style="font-size:20px;" class="description-percentage text-orange"> 26
+        Cº</span>
+      </br>
+
+      <span class="description-text  ">Mediana</span>
+    </div>
+  </div>
+
+  <img src="/admin/dist/img/barra.png" style="max-height: 60px; margin-left: 115px; margin-top: 4px;">
+
+
+  <div class="col-sm-3 col-xs-6 ">
+    <div class="description-block border-right">
+      <span style="font-size:20px;" class="description-percentage text-orange">
+        65.5 %</span>
+      </br>
+
+      <span class="description-text  ">Primeiro Quartil</span>
+    </div>
+  </div>
+
+  <div class="col-sm-3 col-xs-6 ">
+    <div class="description-block border-right">
+      <span style="font-size:20px;" class="description-percentage text-orange"> 90.5
+        %</span>
+      </br>
+
+      <span class="description-text  ">Terceiro Quartil</span>
+    </div>
+  </div>
+  </div>
+
+
+
+  <input id="idSensor" value="<%=id%>" type="hidden">
+
+
+  <!--Final dos novos campos-->
+</div>
+  
 
   
 <div id="loading" style="display: block">
-    <img src="mon.gif" style="width:400px;height:400px;margin-left: -600px;margin-top: 100px" />
+    <img src="mon.gif" style="width:200px;height:200px;margin-left: 400px;margin-top: 150px" />
 </div>
 
 <!-- COLOQUE A DIV "loading" ACIMA DE TODO O CONTEUDO DO SITE (ABAIXO DA <body>) -->
@@ -202,6 +204,7 @@
       return r.json()
     }).then(rs => {
       loading.style.display = "none";
+      row.style.display='block';
       console.log(rs);
       Highcharts.chart('container', {
         chart: {
