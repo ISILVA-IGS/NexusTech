@@ -73,7 +73,7 @@
       <span id="pquart" style="font-size:20px;" class="description-percentage text-black"></span>
       </br>
 
-      <span class="description-text  ">Primeiro Quartil</span>
+      <span class="description-text  ">Pri.Quartil</span>
     </div>
   </div>
 
@@ -91,7 +91,7 @@
       <span id="tquart" style="font-size:20px;" class="description-percentage text-black"></span>
       </br>
 
-      <span class="description-text  ">Terceiro Quartil</span>
+      <span class="description-text  ">Ter.Quartil</span>
     </div>
   </div>
 
@@ -158,9 +158,9 @@
   
   <script>
 
-    var socket = io('https://nexustech.azurewebsites.net');
+   // var socket = io('https://nexustech.azurewebsites.net');
 
-  //  var socket = io('localhost:8080');
+    var socket = io('localhost:8080');
     var events = new eventsVericacao();
     socket.on('pisca_green', function (tipo) {
       events.startGreen(tipo);
@@ -206,6 +206,7 @@
        mediana.innerHTML=rs.analytics.mediana;
       pquart.innerHTML=rs.analytics.primeiroQuartil;
       tquart.innerHTML=rs.analytics.terceiroQuartil;
+      max.innerHTML=rs.analytics.maximo;
 
       row.style.display='block';
       console.log(rs);

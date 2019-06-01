@@ -157,6 +157,24 @@ module.exports  = {
              });
             
         });
+    },
+    async selectNumerosCelular (){
+        const sql = await mssql.connect()
+        return new Promise((resolve,reject)=>{
+            
+            
+            sql.query(`SELECT tel_cel from usuario where notificacao = 1 and fk_unidade = 2`,(err,rs)=>{
+
+                if(err){
+                    reject(err);
+                }else{
+             
+                    resolve(rs.recordset);
+                }
+
+             });
+            
+        });
     }
 
 }

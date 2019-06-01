@@ -1,0 +1,80 @@
+<!-- Main Header -->
+<%- include('include/header') -%>
+
+<!-- Left side column. contains the logo and sidebar -->
+<%- include('include/menuLateral') -%>
+
+
+<div  style="background-color: white; width: 5000; " class="content-wrapper">
+
+        <div class="box-body" style="width: 5000px" >
+                <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                  <thead>
+                  <tr role="row"><th class="sorting_desc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending" aria-sort="descending">Temp Min.</th>
+                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Temp max</th>
+                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Temp media</th>
+                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Umid max</th>
+                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Umid min</th></tr>
+                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Umid media</th></tr>
+
+                  </thead>
+                  <tbody>
+                  
+                  <tr role="row" class="odd">
+                        <td class="sorting_1">4.2</td>
+                        <td>5.9</td>
+                        <td>6</td>
+                        <td>60</td>
+                        <td>90</td>
+                        <td>50</td>
+                  </tr><tr role="row" class="even">
+                    <td class="sorting_1">4.2</td>
+                    <td>5.9</td>
+                    <td>6</td>
+                    <td>60</td>
+                    <td>90</td>
+                    <td>50</td>
+
+            </tbody>
+                  </table>
+              </div>
+            <!-- /.content-wrapper -->
+        
+            
+        
+          </div>
+        
+        
+            
+
+
+</div>
+     <!-- jQuery 3 -->
+     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+     <!-- Bootstrap 3.3.7 -->
+     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+     <!-- PACE -->
+     <script src="bower_components/PACE/pace.min.js"></script>
+     <!-- SlimScroll -->
+     <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+     <!-- FastClick -->
+     <script src="bower_components/fastclick/lib/fastclick.js"></script>
+     <!-- AdminLTE App -->
+     <script src="dist/js/adminlte.min.js"></script>
+     <!-- AdminLTE for demo purposes -->
+     <script src="dist/js/demo.js"></script>
+     <!-- page script -->
+     <script type="text/javascript">
+       // To make Pace works on Ajax calls
+       $(document).ajaxStart(function () {
+         Pace.restart()
+       })
+       $('.ajax').click(function () {
+         $.ajax({
+           url: '#', success: function (result) {
+             $('.ajax-content').html('<hr>Ajax Request Completed !')
+           }
+         })
+       })
+     </script>
+   

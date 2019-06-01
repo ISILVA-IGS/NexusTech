@@ -1,5 +1,6 @@
 const sms = require("../utils/alerta");
 const date = require('../utils/date');
+const user = require('../repositorio/repositorio_user')
 
 class ControllerAlerta{
     constructor(t){
@@ -39,7 +40,7 @@ class ControllerAlerta{
                     
 
         
-                },15000)
+                },5000)
             }
 
         }
@@ -57,7 +58,7 @@ class ControllerAlerta{
                     
 
                     
-                },15000)
+                },5000)
 
             }
 
@@ -74,7 +75,7 @@ class ControllerAlerta{
                     instancia.enviarSms(valor,instancia.tipo+'r');
                     
                     
-                },15000)
+                },5000)
 
             }
             
@@ -142,7 +143,24 @@ class ControllerAlerta{
 
         }
 
-        //sms(msg);
+       enviarSms();
+    
+
+
+    }
+
+    enviarSms(){
+        user.selectNumerosCelular().then(numeros=>{
+            
+            numeros.forEach(element => {
+
+                console.log(element.tel_cel)
+                // sms(msg);
+
+            });
+
+        });
+
 
     }
 

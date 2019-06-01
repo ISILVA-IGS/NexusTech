@@ -105,6 +105,14 @@ router.delete('/user/:id', function(req, res, next) {
 });
 
 
+router.get('/historico', function(req, res, next) {
+ 
+  res.render('historico',{sensores:req.session.sensores,user:req.session.user});
+ 
+});
+
+
+
 
 
 
