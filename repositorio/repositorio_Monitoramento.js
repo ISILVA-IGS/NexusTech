@@ -74,7 +74,7 @@ module.exports={
             PERCENTILE_CONT(0.25) WITHIN GROUP(ORDER BY CAST([Temperatura_Atual] AS FLOAT)) OVER(PARTITION BY 1) AS [primeiroQuartil],
             PERCENTILE_CONT(0.5) WITHIN GROUP(ORDER BY CAST([Temperatura_Atual] AS FLOAT)) OVER(PARTITION BY 1) AS [mediana],
             PERCENTILE_CONT(0.75) WITHIN GROUP(ORDER BY CAST([Temperatura_Atual] AS FLOAT)) OVER(PARTITION BY 1) AS [terceiroQuartil],
-            MAX(CAST([Temperatura_Atual] AS FLOAT)) OVER(PARTITION BY 1) AS [maximo] FROM Monitoramento WHERE fk_Sensor = ${id} and data_mon >=${date}`
+            MAX(CAST([Temperatura_Atual] AS FLOAT)) OVER(PARTITION BY 1) AS [maximo] FROM Monitoramento WHERE fk_Sensor = ${id} and data_mon >='${date}'`
              ,(err,result)=>{
                 
                 if(err){

@@ -7,6 +7,7 @@ var repositorio_Historico = require('../repositorio/repositorio_Historico');
 const login = require("../controller/controller_login");
 const looping_ = require("../utils/looping");
 const looping = new looping_()
+const c_historico = require('../controller/controller_Historico');
 
 
 router.use(function(req,res,next){
@@ -107,9 +108,17 @@ router.delete('/user/:id', function(req, res, next) {
 
 router.get('/historico', function(req, res, next) {
  
-  res.render('historico',{sensores:req.session.sensores,user:req.session.user});
+  
+ 
+
+  c_historico.select(req.query.dateStart,req.query.dateEnd,req.query.sensor).then(rs=>{
+    res.render('historico',{sensores:req.session.sensores,user:req.session.user,results:rs});
+     
+   })
  
 });
+
+
 
 
 
@@ -142,10 +151,5 @@ router.post('/start/', async function  (req, res, next) {
 
 
 
-router.get('/historico', function(req, res, next) {
-  
-  repositorio_Historico.selectDadosBas();
-  //repositorio_Historico.selectAnalyticsT();
-  //repositorio_Historico.selectAnalyticsU();
-});
+
 module.exports = router;

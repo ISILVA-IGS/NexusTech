@@ -59,7 +59,7 @@
 
   <div class="col-sm-3 col-xs-6" style="width: 95px">
     <div class="description-block border-right">
-      <span id="min" style="font-size:20px;" class="description-percentage text-black "></span>
+      <span id="min" style="font-size:20px;" class="description-percentage text-black ">0</span>
       </br>
 
       <span class="description-text">Mínimo</span>
@@ -70,7 +70,7 @@
 
   <div class="col-sm-3 col-xs-6 " style="width: 95px">
     <div class="description-block border-right">
-      <span id="pquart" style="font-size:20px;" class="description-percentage text-black"></span>
+      <span id="pquart" style="font-size:20px;" class="description-percentage text-black">0</span>
       </br>
 
       <span class="description-text  ">Pri.Quartil</span>
@@ -79,7 +79,7 @@
 
   <div class="col-sm-3 col-xs-6 "style="width: 95px">
     <div class="description-block border-right">
-      <span id="mediana" style="font-size:20px;" class="description-percentage text-black"></span>
+      <span id="mediana" style="font-size:20px;" class="description-percentage text-black">0</span>
       </br>
 
       <span class="description-text  ">Mediana</span>
@@ -88,7 +88,7 @@
 
   <div class="col-sm-3 col-xs-6 " style="width: 95px">
     <div class="description-block border-right">
-      <span id="tquart" style="font-size:20px;" class="description-percentage text-black"></span>
+      <span id="tquart" style="font-size:20px;" class="description-percentage text-black">0</span>
       </br>
 
       <span class="description-text  ">Ter.Quartil</span>
@@ -97,7 +97,7 @@
 
   <div class="col-sm-3 col-xs-6" style="width: 95px">
     <div class="description-block border-right">
-      <span id="max" style="font-size:20px;" class="description-percentage text-black "></span>
+      <span id="max" style="font-size:20px;" class="description-percentage text-black ">0</span>
       </br>
 
       <span class="description-text">Máximo</span>
@@ -158,9 +158,9 @@
   
   <script>
 
-    var socket = io('https://nexustech.azurewebsites.net');
+    //var socket = io('https://nexustech.azurewebsites.net');
 
-    //var socket = io('localhost:8080');
+    var socket = io('localhost:8080');
     var events = new eventsVericacao();
     socket.on('pisca_green', function (tipo) {
       events.startGreen(tipo);
@@ -199,15 +199,17 @@
     fetch('/admin/start?id=' + idSensor.value, { method: 'POST', headers: myHeaders }).then(r => {
       return r.json()
     }).then(rs => {
-      console.log(rs.analytics.minimo);
+      
 
       loading.style.display = "none";
-       min.innerHTML=rs.analytics.minimo;
+    
+        min.innerHTML=rs.analytics.minimo;
        mediana.innerHTML=rs.analytics.mediana;
-      pquart.innerHTML=rs.analytics.primeiroQuartil;
+        pquart.innerHTML=rs.analytics.primeiroQuartil;
       tquart.innerHTML=rs.analytics.terceiroQuartil;
       max.innerHTML=rs.analytics.maximo;
 
+      
       row.style.display='block';
       console.log(rs);
       Highcharts.chart('container', {
