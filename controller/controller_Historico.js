@@ -1,5 +1,5 @@
 const repositorio_Historico = require('../repositorio/repositorio_Historico')
-var toFixed = require('tofixed');
+
 module.exports= {
 
   select(dataInit,dataEnd,sensor){
@@ -11,11 +11,18 @@ module.exports= {
             sensor ='2'
         }
         repositorio_Historico.select(dataInit,dataEnd,sensor).then(rs=>{
-           
+            rs = this.tratarDados(rs);
             resolve(rs);
         })
 
     });
+  },
+  tratarDados(rs){
+    rs.forEach(element => {
+      var dado = element.tempMedia
+      element = parseFloat(dado.toFixed(2));
+    });
   }
 }
 
+  
