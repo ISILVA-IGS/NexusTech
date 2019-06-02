@@ -116,9 +116,9 @@ class Controller_dashBoard {
                 if(!rs){
                     rs = {minimo:0,mediana:0,primeiroQuartil:0,terceiroQuartil:0,maximo:0}
                 }
-            resolve(rs)
+                resolve(rs)
                 
-        });
+            });
         });
     }
 
