@@ -40,7 +40,7 @@ class ControllerAlerta{
                     
 
         
-                },5000)
+                },10000)
             }
 
         }
@@ -58,7 +58,7 @@ class ControllerAlerta{
                     
 
                     
-                },5000)
+                },10000)
 
             }
 
@@ -75,7 +75,7 @@ class ControllerAlerta{
                     instancia.enviarSms(valor,instancia.tipo+'r');
                     
                     
-                },5000)
+                },10000)
 
             }
             
@@ -130,23 +130,23 @@ class ControllerAlerta{
 
         switch(tipo){
             case"tg":
-                msg=`NexusTech Informa! ${apelido} esta dentro dos Padroes recomendados, valor registrado as ${hour} e de ${valor} Graus Celsius`
+                msg=`NexusTech Informa! ${apelido} esta dentro dos Padroes recomendados, valor registrado as ${hour-3} e de ${valor} Graus Celsius`
             break;
             case"ty":
-                msg=`NexusTech informa! ${apelido} em Situacao de Atencao, Temperatura fora dos Padroes recomendados valor registrado as ${hour} e de ${valor} Graus Celsius`
+                msg=`NexusTech informa! ${apelido} em Situacao de Atencao, Temperatura fora dos Padroes recomendados valor registrado as ${hour-3} e de ${valor} Graus Celsius`
             break;
             case"tr":
-                msg=`NexusTech informa! ${apelido} em Situacao de Emergencia,valor registrado as ${hour} e de ${valor} Graus Celsius`
+                msg=`NexusTech informa! ${apelido} em Situacao de Emergencia,valor registrado as ${hour-3} e de ${valor} Graus Celsius`
             break;
 
             case"ug":
-                msg=`NexusTech informa! ${apelido} dentro dos Padroes recomendados, valor registrado as ${hour} e de ${valor}% de Umidade`
+                msg=`NexusTech informa! ${apelido} dentro dos Padroes recomendados, valor registrado as ${hour-3} e de ${valor}% de Umidade`
             break;
             case"uy":
-                msg=`NexusTech informa! ${apelido} em Situacao de Atencao,valor registrado as ${hour} e de ${valor}% de Umidade`
+                msg=`NexusTech informa! ${apelido} em Situacao de Atencao,valor registrado as ${hour-3} e de ${valor}% de Umidade`
             break;
             case"ur":
-                msg=`NexusTech informa! ${apelido} em Situacao de Emergencia,valor registrado as ${hour} e de ${valor}% de Umidade`
+                msg=`NexusTech informa! ${apelido} em Situacao de Emergencia,valor registrado as ${hour-3} e de ${valor}% de Umidade`
             break;
 
         }
