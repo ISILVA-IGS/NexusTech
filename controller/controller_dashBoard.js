@@ -23,9 +23,9 @@ class Controller_dashBoard {
                 for (let i = 0; i < 10; i++) {
                     console.log(rs);
 
-                    temp[i] = rs.recordset[i].Temperatura_Atual;
+                    temp[i] = parseFloat(rs.recordset[i].Temperatura_Atual.toFixed(2));
 
-                    umid[i] = rs.recordset[i].Umidade_Atual;
+                    umid[i] = parseFloat(rs.recordset[i].Umidade_Atual.toFixed(2));
 
 
                 }
