@@ -116,7 +116,7 @@ class ControllerAlerta{
     }
 
     enviarSms(valor,tipo){
-        var time = new Date('GMT-3:00').getTime();
+        var time = new Date().getTime('GMT-3:00');
         var hour = date.getHour(time)
         var msg ="";
         var apelido ='';
