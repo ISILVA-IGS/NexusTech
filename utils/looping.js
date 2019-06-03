@@ -24,9 +24,10 @@ class controllerLopping {
 
                 let time = date.getTime(rs.recordset[0].Data_mon + 'GMT-6:00')
 
-                let temp = rs.recordset[0].Temperatura_Atual;
+                let temp =  parseFloat(rs.recordset[0].Temperatura_Atual.toFixed(2))
 
-                let umid = rs.recordset[0].Umidade_Atual;
+                let umid = parseFloat(rs.recordset[0].Umidade_Atual.toFixed(2))
+
 
                 let media = rs.recordset[0].media;
                 let mediana = rs.recordset[0].mediana;
