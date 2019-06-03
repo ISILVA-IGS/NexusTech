@@ -95,6 +95,7 @@ class Controller_dashBoard {
                     }
                 });
                 global.alertas = json;
+                global.idSensor = id;
                 resolve(json);
 
 

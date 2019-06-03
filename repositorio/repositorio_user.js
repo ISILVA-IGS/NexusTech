@@ -161,7 +161,7 @@ module.exports  = {
     async selectNumerosCelular (){
         const sql = await mssql.connect()
         return new Promise((resolve,reject)=>{
-            
+            console.log('repo')
             
             sql.query(`SELECT tel_cel from usuario where notificacao = 1 and fk_unidade = 2`,(err,rs)=>{
 

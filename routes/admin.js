@@ -76,6 +76,7 @@ router.get('/monitoramento/', function(req, res, next) {
       id= sensores[0].idSensor
     }
     req.session.sensores = sensores;
+    global.sensores = sensores;
     looping.resetaInstancia();
     res.render('monitoramento',{sensores,user:req.session.user,id:id})
 

@@ -119,43 +119,51 @@ class ControllerAlerta{
         var time = new Date().getTime();
         var hour = date.getHour(time)
         var msg ="";
+        var apelido ='';
+        global.sensores.forEach((sensor)=>{
+            if(sensor.idSensor == global.idSensor){
+                apelido = sensor.apelido
+            }
+        });
+        
+
 
         switch(tipo){
             case"tg":
-                msg=`Situacao da geladeira2 dentro dos Padroes recomendados, valor registrado as ${hour} e de ${valor} Graus Celsius`
+                msg=`NexusTech Informa! ${apelido} esta dentro dos Padroes recomendados, valor registrado as ${hour} e de ${valor} Graus Celsius`
             break;
             case"ty":
-                msg=`NexusTech informa! Situacao de Atencao, Temperatura fora dos Padroes recomendados valor registrado as ${hour} e de ${valor} Graus Celsius`
+                msg=`NexusTech informa! ${apelido} em Situacao de Atencao, Temperatura fora dos Padroes recomendados valor registrado as ${hour} e de ${valor} Graus Celsius`
             break;
             case"tr":
-                msg=`Situacao em estado de Emergencia,valor registrado as ${hour} e de ${valor} Graus Celsius`
+                msg=`NexusTech informa! ${apelido} em Situacao de Emergencia,valor registrado as ${hour} e de ${valor} Graus Celsius`
             break;
 
             case"ug":
-                msg=`Situacao da geladeira2 dentro dos Padroes recomendados, valor registrado as ${hour} e de ${valor}% de Umidade`
+                msg=`NexusTech informa! ${apelido} dentro dos Padroes recomendados, valor registrado as ${hour} e de ${valor}% de Umidade`
             break;
             case"uy":
-                msg=`Situacao da Geladeira2 em estado de Emergencia,valor registrado as ${hour} e de ${valor}% de Umidade`
+                msg=`NexusTech informa! ${apelido} em Situacao de Atencao,valor registrado as ${hour} e de ${valor}% de Umidade`
             break;
             case"ur":
-                msg=`Situacao da Geladeira2 em estado de Emergencia,valor registrado as ${hour} e de ${valor}% de Umidade`
+                msg=`NexusTech informa! ${apelido} em Situacao de Emergencia,valor registrado as ${hour} e de ${valor}% de Umidade`
             break;
 
         }
 
-       enviarSms();
+       this.Sms(msg);
     
 
 
     }
 
-    enviarSms(){
+    Sms(msg){
         user.selectNumerosCelular().then(numeros=>{
-            
+            console.log('cheguei');
             numeros.forEach(element => {
 
                 console.log(element.tel_cel)
-                // sms(msg);
+                sms(msg,element.tel_cel);
 
             });
 
