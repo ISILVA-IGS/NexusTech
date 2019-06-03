@@ -14,22 +14,30 @@
   <meta name="author" content="Hcode.com.br" />
   <meta name="theme-color" content="#3c8dbc">
   <style>
+    @media screen and (max-width: 1000px){
+      .login-boxm{
+      display: block;
+      padding-top: 10%;
+    }
+}
     .login-boxm{
       display: flex;
       padding-top: 10%;
     }
     .login-logom{
-      width: 50%;
+      width: 40%;
       font-size: 55px;
     text-align: center;
     margin-bottom: 25px;
-    font-weight: 300;
+    padding-left: 15%;
+    padding-top: 1em
     }
  
     .login-box-bodym{
       width: 50%;
       padding: 7em;
       color: white;
+      margin-top: -3em
        
     }
     input[type=text],[type=password]{
@@ -41,21 +49,27 @@
       outline: none;
       transition: 0.5s;
       height: 45px;
-      border-radius: 10px;
+      border-radius: 15px;
     }
+    
     
     input[type=text],[type=password]:focus{
       border-bottom: 3px solid rgb(255, 136, 0);
     }
     .botao{
       width: 100%;
-      background-color: #05004b7e;
+      background-color: #032341d2;
       border-radius: 20px;
       outline: none;
       border-style: none;
       border-bottom: 3px solid rgb(255, 136, 0);
       color:gray;
-      height: 40px;
+      height: 45px;
+    }
+    .botao:hover{
+      background-color: #113b63d2;
+      transition: 0.6s;
+      color:white;
     }
   
   </style>
@@ -71,7 +85,7 @@
         <img src="../../Logo/Nexus_tech-transparente.png">
     </div>
     <!-- /.login-logo -->
-    <div class="login-box-bodym">
+    <div class="login-box-bodym ">
       <p class="login-box-msg">Acesso ao Sistema</p>
 
       <% if(typeof erro === "object" ) { %>
@@ -87,7 +101,7 @@
         </div>
             <%}%>
 
-      <form method="post">
+      <form   method="post">
         <div class="form-group has-feedback">
           <input name="email" type="text" class="form-control" placeholder="E-mail" <% if(typeof campos =='object'){ %> value='<%=campos.email%>' <% } %> >
           <span class="glyphicon glyphicon-envelope form-control-feedback" style="font-size: 18px"></span>
