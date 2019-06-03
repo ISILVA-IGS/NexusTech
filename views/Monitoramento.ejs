@@ -1,3 +1,14 @@
+<style>
+  .barraAnalitics{
+    background-color: rgba(122, 122, 122, 0.336);
+    width: 3px;
+    height: 50px;
+    display: block;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+</style>
+
 <!-- Main Header -->
 <%- include('include/header') -%>
 
@@ -53,7 +64,7 @@
 
 
 <!-- /.info-box -->
-<div class="box-footer" style=" width: 505px; max-height:90px; margin-left:585px; ">
+<div class="box-footer" style=" width: 505px; max-height:90px; margin-left:585px; display: flex">
 
   
 
@@ -63,38 +74,36 @@
       </br>
 
       <span class="description-text">Mínimo</span>
+      
     </div>
 
     <!-- /.description-block -->
   </div>
-
-  <div class="col-sm-3 col-xs-6 " style="width: 95px">
-    <div class="description-block border-right">
+  <span class="barraAnalitics"></span>
+  <div class="col-sm-3 col-xs-6 " style="width: 95px">   
+    <div class="description-block border-right">     
       <span id="pquart" style="font-size:20px;" class="description-percentage text-black">0</span>
       </br>
-
-      <span class="description-text  ">Pri.Quartil</span>
-    </div>
+      <span class="description-text  ">1ºQuartil</span>    
+    </div>  
   </div>
-
+  <span class="barraAnalitics"></span>
   <div class="col-sm-3 col-xs-6 "style="width: 95px">
     <div class="description-block border-right">
       <span id="mediana" style="font-size:20px;" class="description-percentage text-black">0</span>
       </br>
-
-      <span class="description-text  ">Mediana</span>
+      <span class="description-text  ">Mediana</span>   
     </div>
   </div>
-
+  <span class="barraAnalitics"></span> 
   <div class="col-sm-3 col-xs-6 " style="width: 95px">
     <div class="description-block border-right">
       <span id="tquart" style="font-size:20px;" class="description-percentage text-black">0</span>
       </br>
-
-      <span class="description-text  ">Ter.Quartil</span>
+      <span class="description-text  ">3ºQuartil</span>
     </div>
   </div>
-
+  <span class="barraAnalitics"></span> 
   <div class="col-sm-3 col-xs-6" style="width: 95px">
     <div class="description-block border-right">
       <span id="max" style="font-size:20px;" class="description-percentage text-black ">0</span>

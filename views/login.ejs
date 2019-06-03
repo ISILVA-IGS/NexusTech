@@ -13,17 +13,65 @@
   <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
   <meta name="author" content="Hcode.com.br" />
   <meta name="theme-color" content="#3c8dbc">
+  <style>
+    .login-boxm{
+      display: flex;
+      padding-top: 10%;
+    }
+    .login-logom{
+      width: 50%;
+      font-size: 55px;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 300;
+    }
+ 
+    .login-box-bodym{
+      width: 50%;
+      padding: 7em;
+      color: white;
+       
+    }
+    input[type=text],[type=password]{
+      background-color: rgba(255, 255, 255, 0.836);
+      border-style: none;
+      border-bottom: 3px solid rgb(255, 136, 0);
+      color:rgb(150, 150, 150);
+      font-size: 16px;
+      outline: none;
+      transition: 0.5s;
+      height: 45px;
+      border-radius: 10px;
+    }
+    
+    input[type=text],[type=password]:focus{
+      border-bottom: 3px solid rgb(255, 136, 0);
+    }
+    .botao{
+      width: 100%;
+      background-color: #05004b7e;
+      border-radius: 20px;
+      outline: none;
+      border-style: none;
+      border-bottom: 3px solid rgb(255, 136, 0);
+      color:gray;
+      height: 40px;
+    }
+  
+  </style>
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
 <body class="hold-transition login-page" style="background-image:url(assets/img/fundo_login.png); ">
-  <div class="login-box">
-    <div class="login-logo">
-      <a href="#"><b>Nexus</b><b style="color: darkorange">Tech</b></a>
+  
+  <div class="login-boxm" >
+    <div class="login-logom">
+      
+        <img src="../../Logo/Nexus_tech-transparente.png">
     </div>
     <!-- /.login-logo -->
-    <div class="login-box-body">
+    <div class="login-box-bodym">
       <p class="login-box-msg">Acesso ao Sistema</p>
 
       <% if(typeof erro === "object" ) { %>
@@ -42,16 +90,16 @@
       <form method="post">
         <div class="form-group has-feedback">
           <input name="email" type="text" class="form-control" placeholder="E-mail" <% if(typeof campos =='object'){ %> value='<%=campos.email%>' <% } %> >
-          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          <span class="glyphicon glyphicon-envelope form-control-feedback" style="font-size: 18px"></span>
         </div>
         <div class="form-group has-feedback">
           <input name="password" type="password" class="form-control" placeholder="Senha">
-          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        </div>
+          <span class="glyphicon glyphicon-lock form-control-feedback" style="font-size: 18px"></span>
+        </div><br>
         <div class="row">
           <!-- /.col -->
-          <div class="col-xs-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
+          <div class="col-xs-12" style="text-align: center">
+            <button type="submit" class="btn botao">Entrar</button>
           </div>
           <!-- /.col -->
         </div>
