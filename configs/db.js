@@ -2,9 +2,9 @@ const sql = require('mssql')
 const config = {
     user: 'isilva',
     password: '#Gf47633297824',
-    server: 'server01191034.database.windows.net', // You can use 'localhost\\instance' to connect to named instance
-    database: 'BancoDigitalTime',
- 
+    
+    server: 'servernexustech.database.windows.net', // You can use 'localhost\\instance' to connect to named instance
+    database: 'NexueTech',
     options: {
         encrypt: true // Use this if you're on Windows Azure
     }
