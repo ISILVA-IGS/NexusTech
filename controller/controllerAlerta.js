@@ -116,6 +116,7 @@ class ControllerAlerta{
     enviarSms(valor,tipo){
         var time = new Date()
         var hour = date.getHour( date.getTime(time + 'GMT-3:00'))
+        console.log(hour);
         var msg ="";
         var apelido ='';
         global.sensores.forEach((sensor)=>{

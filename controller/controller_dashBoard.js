@@ -107,7 +107,29 @@ class Controller_dashBoard {
     analytics(id){
         return new Promise((resolve,reject)=>{
             var data = new Date();
+
             data = `${date.getY(data)}-${date.getM(data)+1}-${date.getD(data)}`;
+            console.log(data);
+            console.log(data);
+            console.log(data);
+            console.log(data);
+            console.log(data);
+            console.log(data);
+            console.log(data);
+            console.log(data);
+            console.log(data);
+            console.log(data);
+            console.log(data);
+            console.log(data);
+            console.log(data);
+            console.log(data);
+            console.log(data);
+            console.log(data);
+            console.log(data);
+            console.log(data);
+            console.log(data);
+            console.log(data);
+            console.log(data);
 
             repositorio_Monitoramento.selectAnalytcs(id,data).then(rs=>{
 
