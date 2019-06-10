@@ -167,9 +167,9 @@
   
   <script>
 
-    //var socket = io('https://nexustechweb.azurewebsites.net');
+    var socket = io('https://nexustechweb.azurewebsites.net');
     
-    var socket = io('localhost:8080');
+    //var socket = io('localhost:8080');
     var events = new eventsVericacao();
     socket.on('pisca_green', function (tipo) {
       events.startGreen(tipo);
