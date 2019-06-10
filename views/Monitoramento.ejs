@@ -167,10 +167,9 @@
   
   <script>
 
-    var socket = io('https://nexustechweb.azurewebsites.net');
-
+    //var socket = io('https://nexustechweb.azurewebsites.net');
     
-    //var socket = io('localhost:8080');
+    var socket = io('localhost:8080');
     var events = new eventsVericacao();
     socket.on('pisca_green', function (tipo) {
       events.startGreen(tipo);
@@ -213,11 +212,11 @@
 
       loading.style.display = "none";
     
-        min.innerHTML=rs.analytics.minimo;
-       mediana.innerHTML=rs.analytics.mediana;
-        pquart.innerHTML=rs.analytics.primeiroQuartil;
-      tquart.innerHTML=rs.analytics.terceiroQuartil;
-      max.innerHTML=rs.analytics.maximo;
+        min.innerHTML=rs.analytics.minimo.toFixed(1)
+       mediana.innerHTML=rs.analytics.mediana.toFixed(1)
+        pquart.innerHTML=rs.analytics.primeiroQuartil.toFixed(1)
+      tquart.innerHTML=rs.analytics.terceiroQuartil.toFixed(1)
+      max.innerHTML=rs.analytics.maximo.toFixed(1)
 
       
       row.style.display='block';

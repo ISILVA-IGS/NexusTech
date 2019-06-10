@@ -2,7 +2,6 @@ const sql = require('mssql')
 const config = {
     user: 'isilva',
     password: '#Gf47633297824',
-    
     server: 'servernexustech.database.windows.net', // You can use 'localhost\\instance' to connect to named instance
     database: 'NexueTech',
     options: {

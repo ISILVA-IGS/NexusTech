@@ -21,7 +21,6 @@ class Controller_dashBoard {
                 var umid = [];
 
                 for (let i = 0; i < 10; i++) {
-                    console.log(rs);
 
                     temp[i] = parseFloat(rs.recordset[i].Temperatura_Atual.toFixed(2));
 
@@ -49,7 +48,6 @@ class Controller_dashBoard {
 
     selectSensores(cpf) {
         return new Promise((resolve, reject) => {
-            console.log(cpf);
             rUser.selectSensores(cpf).then(rs => { resolve(rs) })
 
 
@@ -110,7 +108,6 @@ class Controller_dashBoard {
         return new Promise((resolve,reject)=>{
             var data = new Date();
             data = `${date.getY(data)}-${date.getM(data)+1}-${date.getD(data)}`;
-            console.log(data);
 
             repositorio_Monitoramento.selectAnalytcs(id,data).then(rs=>{
 

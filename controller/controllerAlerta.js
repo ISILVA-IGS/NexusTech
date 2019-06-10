@@ -22,7 +22,6 @@ class ControllerAlerta{
 
     comparar(valor,v1,v2,v3,v4){
 
-        console.log(valor,v1,v2,v3,v4); 
 
 
         if(valor >= v1 && valor <= v2){
@@ -106,7 +105,6 @@ class ControllerAlerta{
             break;
 
             default:
-                console.log(value+' '+tipo);
                 global.socket_io.emit(value,tipo);
             break;
 
@@ -116,8 +114,8 @@ class ControllerAlerta{
     }
 
     enviarSms(valor,tipo){
-        var time = new Date().getTime('GMT-6:00');
-        var hour = date.getHour(time)
+        var time = new Date()
+        var hour = date.getHour( date.getTime(time + 'GMT-3:00'))
         var msg ="";
         var apelido ='';
         global.sensores.forEach((sensor)=>{
@@ -159,7 +157,6 @@ class ControllerAlerta{
 
     Sms(msg){
         user.selectNumerosCelular().then(numeros=>{
-            console.log('cheguei');
             numeros.forEach(element => {
 
                 console.log(element.tel_cel)

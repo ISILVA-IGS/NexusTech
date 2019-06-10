@@ -40,7 +40,6 @@ class controllerLopping {
                 this.alertaUmid.comparar(umid, al.ua.min, al.ua.max,al.ue.min, al.ue.max);
 
                 var json = { time, temp, umid};
-                console.log(json);
                 resolve(json);
 
 
