@@ -43,8 +43,8 @@
         <td><%=usr.Nome_usuario%></td>
         <td><%=usr.Tel_Cel%></td>
         <td><%=usr.CRF%></td>
-        <td><%=usr.Administrador%></td>
-        <td><%=usr.Notificacao%></td>
+        <td><%if(usr.Administrador){%>sim<%}else{%>não<%}%></td>
+        <td><%if(usr.Notificacao){%>sim<%}else{%>não<%}%></td>
 
 
         <td>
