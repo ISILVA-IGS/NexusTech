@@ -150,7 +150,7 @@ class ControllerAlerta{
 
         }
 
-       //this.Sms(msg);
+       this.Sms(msg);
     
 
 
